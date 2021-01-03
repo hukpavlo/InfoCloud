@@ -11,9 +11,19 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		25E4460A6F013535928E9829 /* libPods-InfoCloud-InfoCloudTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D96E6A4343993B987FE7027D /* libPods-InfoCloud-InfoCloudTests.a */; };
+		2E6795AE1E95D3245D9205D6 /* libPods-App-InfoCloud-InfoCloudTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3154161B486B82136226B0BD /* libPods-App-InfoCloud-InfoCloudTests.a */; };
+		652BE53E25A273D000CACC75 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
+		652BE53F25A273D000CACC75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		652BE54325A273D000CACC75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		652BE54425A273D000CACC75 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		652BE55A25A2757100CACC75 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
+		652BE55B25A2757100CACC75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		652BE55F25A2757100CACC75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		652BE56025A2757100CACC75 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		DA14399C93D7901170DD9EAE /* libPods-InfoCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C2632FF427CF336B80CA09 /* libPods-InfoCloud.a */; };
+		945BE2BC6E182345B7E71D2C /* libPods-App-InfoCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B53CF9107B5AB4EDB9D3157C /* libPods-App-InfoCloud.a */; };
+		9D720D90B36160C44BC08B3F /* libPods-App-InfoCloudStaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE4A9ACEA8866C74BC9789C /* libPods-App-InfoCloudStaging.a */; };
+		9F73C2EB1372FEA3C6C8498F /* libPods-App-InfoCloudDevelopment.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 678A621DB25AC635E4D035EF /* libPods-App-InfoCloudDevelopment.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,20 +42,32 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* InfoCloudTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoCloudTests.m; sourceTree = "<group>"; };
 		031770E8D7B3E4CA305175B0 /* Pods-InfoCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfoCloud.debug.xcconfig"; path = "Target Support Files/Pods-InfoCloud/Pods-InfoCloud.debug.xcconfig"; sourceTree = "<group>"; };
+		068FFF6AC31510E3F9106668 /* Pods-App-InfoCloudStaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-InfoCloudStaging.release.xcconfig"; path = "Target Support Files/Pods-App-InfoCloudStaging/Pods-App-InfoCloudStaging.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* InfoCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfoCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = InfoCloud/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = InfoCloud/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = InfoCloud/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = InfoCloud/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = InfoCloud/main.m; sourceTree = "<group>"; };
+		1C49C42CFC34269B85E13209 /* Pods-App-InfoCloud-InfoCloudTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-InfoCloud-InfoCloudTests.debug.xcconfig"; path = "Target Support Files/Pods-App-InfoCloud-InfoCloudTests/Pods-App-InfoCloud-InfoCloudTests.debug.xcconfig"; sourceTree = "<group>"; };
+		30B74249226EC9AEA7C2FFDF /* Pods-App-InfoCloud-InfoCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-InfoCloud-InfoCloudTests.release.xcconfig"; path = "Target Support Files/Pods-App-InfoCloud-InfoCloudTests/Pods-App-InfoCloud-InfoCloudTests.release.xcconfig"; sourceTree = "<group>"; };
+		3154161B486B82136226B0BD /* libPods-App-InfoCloud-InfoCloudTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-InfoCloud-InfoCloudTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EE4A9ACEA8866C74BC9789C /* libPods-App-InfoCloudStaging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-InfoCloudStaging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		652BE54A25A273D000CACC75 /* InfoCloudDevelopment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfoCloudDevelopment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		652BE56625A2757100CACC75 /* InfoCloudStaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfoCloudStaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		678A621DB25AC635E4D035EF /* libPods-App-InfoCloudDevelopment.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-InfoCloudDevelopment.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = InfoCloud/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9196AFF4B891D263691122FC /* Pods-App-InfoCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-InfoCloud.debug.xcconfig"; path = "Target Support Files/Pods-App-InfoCloud/Pods-App-InfoCloud.debug.xcconfig"; sourceTree = "<group>"; };
+		AE63858EA296647F7C7F67BD /* Pods-App-InfoCloudStaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-InfoCloudStaging.debug.xcconfig"; path = "Target Support Files/Pods-App-InfoCloudStaging/Pods-App-InfoCloudStaging.debug.xcconfig"; sourceTree = "<group>"; };
+		B53CF9107B5AB4EDB9D3157C /* libPods-App-InfoCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-InfoCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9CA19F404FA51C4464D0C83 /* Pods-App-InfoCloudDevelopment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-InfoCloudDevelopment.debug.xcconfig"; path = "Target Support Files/Pods-App-InfoCloudDevelopment/Pods-App-InfoCloudDevelopment.debug.xcconfig"; sourceTree = "<group>"; };
 		BDC90BB5ED48351F724D1026 /* Pods-InfoCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfoCloud.release.xcconfig"; path = "Target Support Files/Pods-InfoCloud/Pods-InfoCloud.release.xcconfig"; sourceTree = "<group>"; };
+		D1DF60C38970D2537CF060C1 /* Pods-App-InfoCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-InfoCloud.release.xcconfig"; path = "Target Support Files/Pods-App-InfoCloud/Pods-App-InfoCloud.release.xcconfig"; sourceTree = "<group>"; };
 		D2A64424B9FF8BA200FB1A2F /* Pods-InfoCloud-InfoCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfoCloud-InfoCloudTests.release.xcconfig"; path = "Target Support Files/Pods-InfoCloud-InfoCloudTests/Pods-InfoCloud-InfoCloudTests.release.xcconfig"; sourceTree = "<group>"; };
-		D96E6A4343993B987FE7027D /* libPods-InfoCloud-InfoCloudTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InfoCloud-InfoCloudTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5C4A4D371DFBB9BE217A87 /* Pods-InfoCloud-InfoCloudTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfoCloud-InfoCloudTests.debug.xcconfig"; path = "Target Support Files/Pods-InfoCloud-InfoCloudTests/Pods-InfoCloud-InfoCloudTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F2C2632FF427CF336B80CA09 /* libPods-InfoCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InfoCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7A7041070DC01EA26D01FE1 /* Pods-App-InfoCloudDevelopment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-InfoCloudDevelopment.release.xcconfig"; path = "Target Support Files/Pods-App-InfoCloudDevelopment/Pods-App-InfoCloudDevelopment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25E4460A6F013535928E9829 /* libPods-InfoCloud-InfoCloudTests.a in Frameworks */,
+				2E6795AE1E95D3245D9205D6 /* libPods-App-InfoCloud-InfoCloudTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +83,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA14399C93D7901170DD9EAE /* libPods-InfoCloud.a in Frameworks */,
+				945BE2BC6E182345B7E71D2C /* libPods-App-InfoCloud.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		652BE54025A273D000CACC75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F73C2EB1372FEA3C6C8498F /* libPods-App-InfoCloudDevelopment.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		652BE55C25A2757100CACC75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D720D90B36160C44BC08B3F /* libPods-App-InfoCloudStaging.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,10 +142,26 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				F2C2632FF427CF336B80CA09 /* libPods-InfoCloud.a */,
-				D96E6A4343993B987FE7027D /* libPods-InfoCloud-InfoCloudTests.a */,
+				B53CF9107B5AB4EDB9D3157C /* libPods-App-InfoCloud.a */,
+				3154161B486B82136226B0BD /* libPods-App-InfoCloud-InfoCloudTests.a */,
+				678A621DB25AC635E4D035EF /* libPods-App-InfoCloudDevelopment.a */,
+				4EE4A9ACEA8866C74BC9789C /* libPods-App-InfoCloudStaging.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		652BE53925A273AF00CACC75 /* InfoCloudDevelopment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InfoCloudDevelopment;
+			sourceTree = "<group>";
+		};
+		652BE55525A2755C00CACC75 /* InfoCloudStaging */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InfoCloudStaging;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -120,6 +174,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				652BE55525A2755C00CACC75 /* InfoCloudStaging */,
+				652BE53925A273AF00CACC75 /* InfoCloudDevelopment */,
 				13B07FAE1A68108700A75B9A /* InfoCloud */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* InfoCloudTests */,
@@ -137,6 +193,8 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* InfoCloud.app */,
 				00E356EE1AD99517003FC87E /* InfoCloudTests.xctest */,
+				652BE54A25A273D000CACC75 /* InfoCloudDevelopment.app */,
+				652BE56625A2757100CACC75 /* InfoCloudStaging.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +206,14 @@
 				BDC90BB5ED48351F724D1026 /* Pods-InfoCloud.release.xcconfig */,
 				DE5C4A4D371DFBB9BE217A87 /* Pods-InfoCloud-InfoCloudTests.debug.xcconfig */,
 				D2A64424B9FF8BA200FB1A2F /* Pods-InfoCloud-InfoCloudTests.release.xcconfig */,
+				9196AFF4B891D263691122FC /* Pods-App-InfoCloud.debug.xcconfig */,
+				D1DF60C38970D2537CF060C1 /* Pods-App-InfoCloud.release.xcconfig */,
+				1C49C42CFC34269B85E13209 /* Pods-App-InfoCloud-InfoCloudTests.debug.xcconfig */,
+				30B74249226EC9AEA7C2FFDF /* Pods-App-InfoCloud-InfoCloudTests.release.xcconfig */,
+				B9CA19F404FA51C4464D0C83 /* Pods-App-InfoCloudDevelopment.debug.xcconfig */,
+				F7A7041070DC01EA26D01FE1 /* Pods-App-InfoCloudDevelopment.release.xcconfig */,
+				AE63858EA296647F7C7F67BD /* Pods-App-InfoCloudStaging.debug.xcconfig */,
+				068FFF6AC31510E3F9106668 /* Pods-App-InfoCloudStaging.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -196,6 +262,48 @@
 			productReference = 13B07F961A680F5B00A75B9A /* InfoCloud.app */;
 			productType = "com.apple.product-type.application";
 		};
+		652BE53A25A273D000CACC75 /* InfoCloudDevelopment */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 652BE54725A273D000CACC75 /* Build configuration list for PBXNativeTarget "InfoCloudDevelopment" */;
+			buildPhases = (
+				652BE53B25A273D000CACC75 /* [CP] Check Pods Manifest.lock */,
+				652BE53C25A273D000CACC75 /* Start Packager */,
+				652BE53D25A273D000CACC75 /* Sources */,
+				652BE54025A273D000CACC75 /* Frameworks */,
+				652BE54225A273D000CACC75 /* Resources */,
+				652BE54525A273D000CACC75 /* Bundle React Native code and images */,
+				652BE54625A273D000CACC75 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InfoCloudDevelopment;
+			productName = InfoCloud;
+			productReference = 652BE54A25A273D000CACC75 /* InfoCloudDevelopment.app */;
+			productType = "com.apple.product-type.application";
+		};
+		652BE55625A2757100CACC75 /* InfoCloudStaging */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 652BE56325A2757100CACC75 /* Build configuration list for PBXNativeTarget "InfoCloudStaging" */;
+			buildPhases = (
+				652BE55725A2757100CACC75 /* [CP] Check Pods Manifest.lock */,
+				652BE55825A2757100CACC75 /* Start Packager */,
+				652BE55925A2757100CACC75 /* Sources */,
+				652BE55C25A2757100CACC75 /* Frameworks */,
+				652BE55E25A2757100CACC75 /* Resources */,
+				652BE56125A2757100CACC75 /* Bundle React Native code and images */,
+				652BE56225A2757100CACC75 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InfoCloudStaging;
+			productName = InfoCloud;
+			productReference = 652BE56625A2757100CACC75 /* InfoCloudStaging.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -228,6 +336,8 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* InfoCloud */,
 				00E356ED1AD99517003FC87E /* InfoCloudTests */,
+				652BE53A25A273D000CACC75 /* InfoCloudDevelopment */,
+				652BE55625A2757100CACC75 /* InfoCloudStaging */,
 			);
 		};
 /* End PBXProject section */
@@ -246,6 +356,24 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		652BE54225A273D000CACC75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				652BE54325A273D000CACC75 /* LaunchScreen.storyboard in Resources */,
+				652BE54425A273D000CACC75 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		652BE55E25A2757100CACC75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				652BE55F25A2757100CACC75 /* LaunchScreen.storyboard in Resources */,
+				652BE56025A2757100CACC75 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,11 +409,157 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-InfoCloud-InfoCloudTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-App-InfoCloud-InfoCloudTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		652BE53B25A273D000CACC75 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-App-InfoCloudDevelopment-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		652BE53C25A273D000CACC75 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		652BE54525A273D000CACC75 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		652BE54625A273D000CACC75 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-App-InfoCloudDevelopment/Pods-App-InfoCloudDevelopment-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-InfoCloudDevelopment/Pods-App-InfoCloudDevelopment-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		652BE55725A2757100CACC75 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-App-InfoCloudStaging-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		652BE55825A2757100CACC75 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		652BE56125A2757100CACC75 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		652BE56225A2757100CACC75 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-App-InfoCloudStaging/Pods-App-InfoCloudStaging-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-InfoCloudStaging/Pods-App-InfoCloudStaging-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D2ED57A753D8AEB5B61A9F87 /* [CP] Check Pods Manifest.lock */ = {
@@ -303,7 +577,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-InfoCloud-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-App-InfoCloud-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -316,7 +590,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-InfoCloud/Pods-InfoCloud-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-App-InfoCloud/Pods-App-InfoCloud-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -325,7 +599,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InfoCloud/Pods-InfoCloud-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-InfoCloud/Pods-App-InfoCloud-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EF1D80CF82F2C78A0F5EDF39 /* [CP] Copy Pods Resources */ = {
@@ -334,7 +608,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-InfoCloud-InfoCloudTests/Pods-InfoCloud-InfoCloudTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-App-InfoCloud-InfoCloudTests/Pods-App-InfoCloud-InfoCloudTests-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -343,7 +617,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InfoCloud-InfoCloudTests/Pods-InfoCloud-InfoCloudTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-InfoCloud-InfoCloudTests/Pods-App-InfoCloud-InfoCloudTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -385,6 +659,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		652BE53D25A273D000CACC75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				652BE53E25A273D000CACC75 /* AppDelegate.m in Sources */,
+				652BE53F25A273D000CACC75 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		652BE55925A2757100CACC75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				652BE55A25A2757100CACC75 /* AppDelegate.m in Sources */,
+				652BE55B25A2757100CACC75 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -398,7 +690,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE5C4A4D371DFBB9BE217A87 /* Pods-InfoCloud-InfoCloudTests.debug.xcconfig */;
+			baseConfigurationReference = 1C49C42CFC34269B85E13209 /* Pods-App-InfoCloud-InfoCloudTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -421,7 +713,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2A64424B9FF8BA200FB1A2F /* Pods-InfoCloud-InfoCloudTests.release.xcconfig */;
+			baseConfigurationReference = 30B74249226EC9AEA7C2FFDF /* Pods-App-InfoCloud-InfoCloudTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -441,7 +733,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 031770E8D7B3E4CA305175B0 /* Pods-InfoCloud.debug.xcconfig */;
+			baseConfigurationReference = 9196AFF4B891D263691122FC /* Pods-App-InfoCloud.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -454,7 +746,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.infocloud.production;
 				PRODUCT_NAME = InfoCloud;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -464,7 +756,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDC90BB5ED48351F724D1026 /* Pods-InfoCloud.release.xcconfig */;
+			baseConfigurationReference = D1DF60C38970D2537CF060C1 /* Pods-App-InfoCloud.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -476,8 +768,96 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.infocloud.production;
 				PRODUCT_NAME = InfoCloud;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		652BE54825A273D000CACC75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9CA19F404FA51C4464D0C83 /* Pods-App-InfoCloudDevelopment.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = InfoCloudDevelopment/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.infocloud.development;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		652BE54925A273D000CACC75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7A7041070DC01EA26D01FE1 /* Pods-App-InfoCloudDevelopment.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = InfoCloudDevelopment/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.infocloud.development;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		652BE56425A2757100CACC75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE63858EA296647F7C7F67BD /* Pods-App-InfoCloudStaging.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = InfoCloudStaging/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.infocloud.staging;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		652BE56525A2757100CACC75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 068FFF6AC31510E3F9106668 /* Pods-App-InfoCloudStaging.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = InfoCloudStaging/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.infocloud.staging;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -613,6 +993,24 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		652BE54725A273D000CACC75 /* Build configuration list for PBXNativeTarget "InfoCloudDevelopment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				652BE54825A273D000CACC75 /* Debug */,
+				652BE54925A273D000CACC75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		652BE56325A2757100CACC75 /* Build configuration list for PBXNativeTarget "InfoCloudStaging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				652BE56425A2757100CACC75 /* Debug */,
+				652BE56525A2757100CACC75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

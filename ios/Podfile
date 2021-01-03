@@ -3,15 +3,27 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'InfoCloud' do
+abstract_target 'App' do
+  target 'InfoCloudDevelopment' do
+    #Development-specific pods
+  end
+
+  target 'InfoCloudStaging' do
+    #Staging-specific pods
+  end
+
+  target 'InfoCloud' do
+    #Production-specific pods
+
+    target 'InfoCloudTests' do
+      inherit! :complete
+      # Pods for testing
+    end
+  end
+
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
-
-  target 'InfoCloudTests' do
-    inherit! :complete
-    # Pods for testing
-  end
 
   # Enables Flipper.
   #
