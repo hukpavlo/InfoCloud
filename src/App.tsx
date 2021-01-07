@@ -1,5 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
+import { enableScreens } from 'react-native-screens';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -7,9 +8,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ScreenName } from '@constants';
 import { Home, Settings } from '@screens';
 
+enableScreens();
 const Tab = createBottomTabNavigator();
 
-const App = () => {
+export const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -34,5 +36,3 @@ const App = () => {
     </>
   );
 };
-
-export default App;
