@@ -11,6 +11,7 @@ module.exports = {
           '@config': './src/config',
           '@screens': './src/screens',
           '@constants': './src/constants',
+          '@components': './src/components',
         },
       },
     ],

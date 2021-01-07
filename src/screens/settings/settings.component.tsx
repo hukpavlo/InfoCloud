@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { SafeAreaView, Text, StyleSheet } from 'react-native';
 
-export const Settings: React.FC = () => {
+export const Settings: FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>Settings screen</Text>
@@ -13,11 +13,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#000',
+    backgroundColor: '#fff',
     justifyContent: 'center',
   },
   text: {
     fontSize: 30,
-    color: '#fff',
+    color: '#000',
   },
 });
