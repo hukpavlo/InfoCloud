@@ -10,6 +10,11 @@
       "StackName": "amplify-infocloud-dev-04135",
       "StackId": "arn:aws:cloudformation:eu-central-1:824459729393:stack/amplify-infocloud-dev-04135/d8395300-4e14-11eb-bf4f-0a81418aeb10",
       "AmplifyAppId": "d3puv472eabktn"
+    },
+    "categories": {
+      "auth": {
+        "InfoCloud": {}
+      }
     }
   },
   "stage": {

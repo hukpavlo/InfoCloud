@@ -15,6 +15,7 @@ abstract_target 'App' do
   target 'InfoCloud' do
     #Production-specific pods
 
+
     target 'InfoCloudTests' do
       inherit! :complete
       # Pods for testing
