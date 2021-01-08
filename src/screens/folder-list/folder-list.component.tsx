@@ -1,16 +1,17 @@
 import React, { FC } from 'react';
-import { SafeAreaView, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-const Test1: FC = () => <Text>Home 1</Text>;
+import { List } from './components';
+import { ScreenName } from '@constants';
 
-export const Home: FC = () => {
+export const FolderList: FC = () => {
   const Tab = createMaterialTopTabNavigator();
 
   return (
     <SafeAreaView style={styles.container}>
       <Tab.Navigator tabBarOptions={{ scrollEnabled: true }}>
-        <Tab.Screen name="All" component={Test1} />
+        <Tab.Screen options={{ title: 'All' }} name={ScreenName.FOLDER_LIST_ALL} component={List} />
       </Tab.Navigator>
     </SafeAreaView>
   );

@@ -1,32 +1,26 @@
 import React, { FC } from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { ScreenName } from '@constants';
-import { Home, Settings } from '@screens';
+import { Folder, Main } from '@screens';
+import { createStackNavigator } from '@react-navigation/stack';
 
 export const Navigation: FC = () => {
-  const BottomTab = createBottomTabNavigator();
+  const Stack = createStackNavigator();
 
   return (
     <NavigationContainer>
-      <BottomTab.Navigator>
-        <BottomTab.Screen
-          component={Home}
-          name={ScreenName.HOME}
+      <Stack.Navigator>
+        <Stack.Screen
           options={{
-            tabBarIcon: ({ focused }) => <Icon name="home" size={30} color={focused ? 'grey' : 'lightgrey'} />,
+            title: 'Folders',
           }}
+          component={Main}
+          name={ScreenName.MAIN}
         />
-        <BottomTab.Screen
-          name={ScreenName.SETTINGS}
-          component={Settings}
-          options={{
-            tabBarIcon: ({ focused }) => <Icon name="cog" size={35} color={focused ? 'grey' : 'lightgrey'} />,
-          }}
-        />
-      </BottomTab.Navigator>
+
+        <Stack.Screen name={ScreenName.FOLDER} component={Folder} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };

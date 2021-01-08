@@ -1,4 +1,7 @@
 export enum ScreenName {
-  HOME = 'HOME',
+  MAIN = 'MAIN',
+  FOLDER = 'FOLDER',
   SETTINGS = 'SETTINGS',
+  FOLDER_LIST = 'FOLDER_LIST',
+  FOLDER_LIST_ALL = 'FOLDER_LIST_ALL',
 }
