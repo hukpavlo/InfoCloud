@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from 'react-native-navigation-hooks';
 import { View, StyleSheet, Image, Text, TouchableHighlight } from 'react-native';
 
-import { ScreenName } from '@constants';
+import { NavigationService } from '@services';
 
 export const ListItem: FC<any> = ({ name, thumb }) => {
-  const navigation = useNavigation();
+  const { push } = useNavigation();
 
   const onPress = () => {
-    navigation.navigate(ScreenName.FOLDER);
+    push(NavigationService.getFolderScreenOptions(name));
   };
 
   return (
