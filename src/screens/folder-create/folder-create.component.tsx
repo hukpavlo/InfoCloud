@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
-import { Text, View } from 'react-native';
+import { SafeAreaView, StatusBar, Text } from 'react-native';
 
 export const FolderCreate: FC = () => {
   return (
-    <View>
+    <SafeAreaView>
+      <StatusBar barStyle="light-content" />
       <Text>Folder create</Text>
-    </View>
+    </SafeAreaView>
   );
 };
