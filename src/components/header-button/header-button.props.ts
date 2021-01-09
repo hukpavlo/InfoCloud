@@ -1,6 +1,7 @@
 import { GestureResponderEvent } from 'react-native';
 
-export type HeaderRightButtonProps = {
+export type HeaderButtonProps = {
   title: string;
+  color?: string;
   onPress: (event: GestureResponderEvent) => void;
 };

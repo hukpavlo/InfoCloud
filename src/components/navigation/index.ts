@@ -1,1 +1,1 @@
-export * from './navigation.component';
+export * from './root-stack.component';
