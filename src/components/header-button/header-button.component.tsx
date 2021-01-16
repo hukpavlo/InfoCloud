@@ -1,20 +1,29 @@
 import React, { FC } from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 import { HeaderButtonProps } from './header-button.props';
 
-export const HeaderButton: FC<HeaderButtonProps> = ({ title, onPress, color = 'rgb(0, 122, 255)' }) => (
-  <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={0.4}>
-    <Text style={[styles.text, { color }]}>{title}</Text>
+export const HeaderButton: FC<HeaderButtonProps> = ({
+  title,
+  onPress,
+  disabled = false,
+  color = EStyleSheet.value('$primary'),
+}) => (
+  <TouchableOpacity disabled={disabled} style={styles.container} onPress={onPress} activeOpacity={0.4}>
+    <Text style={[styles.text, { color }, disabled && styles.disabled]}>{title}</Text>
   </TouchableOpacity>
 );
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
     marginHorizontal: 15,
   },
   text: {
     fontSize: 17,
     letterSpacing: 0.35,
+  },
+  disabled: {
+    opacity: 0.4,
   },
 });

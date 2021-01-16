@@ -26,9 +26,6 @@ export const RootStack: FC = () => {
               height: 60,
             },
             headerLeft: () => <HeaderButton title="Cancel" onPress={() => navigation.pop()} />,
-            headerRight: () => (
-              <HeaderButton title="Save" onPress={() => navigation.navigate(ScreenName.FOLDER_CREATE_MODAL)} />
-            ),
             gestureResponseDistance: {
               vertical: height,
             },
