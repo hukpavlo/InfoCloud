@@ -1,0 +1,3 @@
+src/models
+src/graphql
+src/typings/api.typing.ts

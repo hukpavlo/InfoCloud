@@ -4,8 +4,8 @@ import { createStackNavigator, HeaderStyleInterpolators } from '@react-navigatio
 
 import { Folder } from '@screens';
 import { ScreenName } from '@constants';
-import { HeaderButton } from '../header-button';
-import { BottomStack } from './bottom-stack.component';
+import { HeaderButton } from '@components';
+import { BottomStack } from './bottom-stack.navigation';
 
 export const MainStack: FC = () => {
   const { Navigator, Screen } = createStackNavigator();

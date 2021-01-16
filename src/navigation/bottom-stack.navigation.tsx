@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -25,7 +26,9 @@ export const BottomStack: FC = () => {
         name={ScreenName.FOLDER_LIST}
         options={{
           tabBarLabel: 'Folders',
-          tabBarIcon: ({ focused }) => <Icon name="folder" size={30} color={focused ? 'rgb(0, 122, 255)' : 'grey'} />,
+          tabBarIcon: ({ focused }) => (
+            <Icon style={styles.reguralIcon} name="folder" color={focused ? 'rgb(0, 122, 255)' : 'grey'} />
+          ),
         }}
       />
       <Screen
@@ -33,9 +36,22 @@ export const BottomStack: FC = () => {
         component={Settings}
         options={{
           tabBarLabel: 'Settings',
-          tabBarIcon: ({ focused }) => <Icon name="cog" size={35} color={focused ? 'rgb(0, 122, 255)' : 'grey'} />,
+          tabBarIcon: ({ focused }) => (
+            <Icon style={styles.smallIcon} name="cog" color={focused ? 'rgb(0, 122, 255)' : 'grey'} />
+          ),
         }}
       />
     </Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  reguralIcon: {
+    width: 30,
+    fontSize: 30,
+  },
+  smallIcon: {
+    width: 35,
+    fontSize: 35,
+  },
+});

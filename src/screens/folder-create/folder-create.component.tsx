@@ -4,10 +4,12 @@ import { Alert, StatusBar, TextInput, SafeAreaView } from 'react-native';
 
 import { HeaderButton, Input } from '@components';
 import { ScreenName } from '@constants';
+import { useStores } from '@stores';
 
 export const FolderCreate: FC = () => {
   const navigation = useNavigation();
   const ref = useRef<TextInput>(null);
+  const { folderStore } = useStores();
   const [folderName, setFolderName] = useState('');
 
   const onSubmit = React.useCallback(() => {
@@ -23,8 +25,10 @@ export const FolderCreate: FC = () => {
       ]);
     }
 
+    folderStore.createFolder(folderName);
+
     navigation.navigate(ScreenName.FOLDER_LIST_ALL);
-  }, [folderName, navigation]);
+  }, [folderName, navigation, folderStore]);
 
   useLayoutEffect(() => {
     navigation.setOptions({

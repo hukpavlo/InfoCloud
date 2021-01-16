@@ -5,8 +5,8 @@ import { createStackNavigator, TransitionPresets } from '@react-navigation/stack
 
 import { ScreenName } from '@constants';
 import { FolderCreate } from '@screens';
-import { HeaderButton } from '../header-button';
-import { MainStack } from './main-stack.component';
+import { HeaderButton } from '@components';
+import { MainStack } from './main-stack.navigation';
 
 export const RootStack: FC = () => {
   const { height } = useWindowDimensions();
