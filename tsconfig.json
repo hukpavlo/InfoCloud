@@ -39,6 +39,7 @@
     "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
     "paths": {
       "@assets": ["assets"],
+      "@models": ["src/models"],
       "@config": ["src/config"],
       "@screens": ["src/screens"],
       "@constants": ["src/constants"],

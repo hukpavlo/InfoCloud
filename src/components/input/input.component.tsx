@@ -1,26 +1,28 @@
 import React, { forwardRef } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { View, TextInput, StyleSheet } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import { View, TextInput, StyleSheet } from 'react-native';
 
 import { InputProps } from './input.props';
 
-export const Input = forwardRef<TextInput, InputProps>(({ placeholder, value, onChange, icon }, ref) => {
-  return (
-    <View style={styles.container}>
-      {icon && <Icon style={styles.icon} name={icon.name} size={30} color={icon.color} />}
+export const Input = forwardRef<TextInput, InputProps>(({ placeholder, value, onChangeText, onSubmit, icon }, ref) => (
+  <View style={styles.container}>
+    {icon && <Icon style={styles.icon} name={icon.name} size={30} color={icon.color} />}
 
-      <TextInput
-        ref={ref}
-        value={value}
-        onChangeText={onChange}
-        clearButtonMode="always"
-        placeholder={placeholder}
-        style={StyleSheet.flatten([styles.input, !icon && styles.noIconInput])}
-      />
-    </View>
-  );
-});
+    <TextInput
+      ref={ref}
+      value={value}
+      autoFocus={true}
+      returnKeyType="done"
+      autoCapitalize="none"
+      clearButtonMode="always"
+      placeholder={placeholder}
+      onSubmitEditing={onSubmit}
+      onChangeText={onChangeText}
+      style={StyleSheet.flatten([styles.input, !icon && styles.noIconInput])}
+    />
+  </View>
+));
 
 const styles = EStyleSheet.create({
   $iconWidth: 50,

@@ -1,6 +1,9 @@
+import { NativeSyntheticEvent, TextInputSubmitEditingEventData } from 'react-native';
+
 export type InputProps = {
   value: string;
   placeholder?: string;
-  onChange: (value: string) => void;
+  onChangeText: (text: string) => void;
   icon?: { name: string; color?: string };
+  onSubmit?: (e: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => void;
 };

@@ -1,39 +1,46 @@
 import { useNavigation } from '@react-navigation/native';
-import { SafeAreaView, StatusBar, TextInput } from 'react-native';
-import React, { FC, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { FC, useLayoutEffect, useRef, useState } from 'react';
+import { Alert, StatusBar, TextInput, SafeAreaView } from 'react-native';
 
-import { ScreenName } from '@constants';
 import { HeaderButton, Input } from '@components';
+import { ScreenName } from '@constants';
 
 export const FolderCreate: FC = () => {
   const navigation = useNavigation();
-  const inputRef = useRef<TextInput>(null);
+  const ref = useRef<TextInput>(null);
   const [folderName, setFolderName] = useState('');
 
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, [inputRef]);
+  const onSubmit = React.useCallback(() => {
+    if (!folderName.trim()) {
+      return Alert.alert('Empty folder name', 'Please enter a valid folder name.', [
+        {
+          text: 'OK',
+          onPress: () => {
+            setFolderName('');
+            ref.current?.focus();
+          },
+        },
+      ]);
+    }
+
+    navigation.navigate(ScreenName.FOLDER_LIST_ALL);
+  }, [folderName, navigation]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: () => (
-        <HeaderButton
-          title="Save"
-          disabled={true}
-          onPress={() => navigation.navigate(ScreenName.FOLDER_CREATE_MODAL)}
-        />
-      ),
+      headerRight: () => <HeaderButton title="Save" disabled={!folderName.length} onPress={onSubmit} />,
     });
-  }, [navigation]);
+  }, [navigation, folderName, onSubmit]);
 
   return (
     <SafeAreaView>
       <StatusBar barStyle="light-content" />
       <Input
-        ref={inputRef}
+        ref={ref}
         value={folderName}
-        onChange={setFolderName}
+        onSubmit={onSubmit}
         placeholder="Folder name"
+        onChangeText={setFolderName}
         icon={{ name: 'folder-open', color: 'orange' }}
       />
     </SafeAreaView>
