@@ -1,14 +1,11 @@
 import React, { FC } from 'react';
-import { useWindowDimensions } from 'react-native';
-import { createStackNavigator, HeaderStyleInterpolators } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import { Folder } from '@screens';
 import { TopStack } from '../top';
 import { ScreenName } from '@constants';
 import { HeaderButton } from '@components';
 
 export const FoldersStack: FC = () => {
-  const { width } = useWindowDimensions();
   const { Navigator, Screen } = createStackNavigator();
 
   return (
@@ -27,15 +24,6 @@ export const FoldersStack: FC = () => {
             />
           ),
         })}
-      />
-
-      <Screen
-        component={Folder}
-        name={ScreenName.FOLDER}
-        options={{
-          gestureResponseDistance: { horizontal: width },
-          headerStyleInterpolator: HeaderStyleInterpolators.forUIKit,
-        }}
       />
     </Navigator>
   );

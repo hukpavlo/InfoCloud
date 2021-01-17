@@ -1,5 +1,6 @@
 export enum ScreenName {
   TOP_STACK = 'TOP_STACK',
+  MAIN_STACK = 'MAIN_STACK',
   BOTTOM_STACK = 'BOTTOM_STACK',
 
   SETTINGS = 'SETTINGS',
