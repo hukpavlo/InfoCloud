@@ -4,9 +4,9 @@ import { observer } from 'mobx-react-lite';
 import { FlatList, SafeAreaView, StyleSheet } from 'react-native';
 
 import { useStores } from '@stores';
-import { ListItem } from '../list-item';
+import { ListItem } from './components';
 
-export const List = observer(() => {
+export const FoldersList = observer(() => {
   const { folderStore } = useStores();
 
   return (

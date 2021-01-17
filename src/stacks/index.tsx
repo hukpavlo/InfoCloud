@@ -3,10 +3,10 @@ import { useWindowDimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 
+import { BottomStack } from './bottom';
 import { ScreenName } from '@constants';
 import { FolderCreate } from '@screens';
 import { HeaderButton } from '@components';
-import { MainStack } from './main.stack';
 
 export const RootStack: FC = () => {
   const { height } = useWindowDimensions();
@@ -14,8 +14,8 @@ export const RootStack: FC = () => {
 
   return (
     <NavigationContainer>
-      <Navigator initialRouteName={ScreenName.MAIN_STACK} screenOptions={{ cardOverlayEnabled: true }} mode="modal">
-        <Screen name={ScreenName.MAIN_STACK} component={MainStack} options={{ headerShown: false }} />
+      <Navigator initialRouteName={ScreenName.BOTTOM_STACK} screenOptions={{ cardOverlayEnabled: true }} mode="modal">
+        <Screen name={ScreenName.BOTTOM_STACK} component={BottomStack} options={{ headerShown: false }} />
         <Screen
           component={FolderCreate}
           name={ScreenName.FOLDER_CREATE_MODAL}

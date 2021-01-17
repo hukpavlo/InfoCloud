@@ -6,12 +6,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 export const Settings: FC = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>Settings screen</Text>
-      <TouchableOpacity
-        onPress={() => {
-          Auth.signOut();
-        }}>
-        <Text>Logout</Text>
+      <TouchableOpacity onPress={() => Auth.signOut()}>
+        <Text style={styles.logout}>Logout</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -24,8 +20,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
   },
-  text: {
-    fontSize: 30,
-    color: '#000',
+  logout: {
+    fontSize: 20,
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
   },
 });

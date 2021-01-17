@@ -27,7 +27,7 @@ export const FolderCreate: FC = () => {
 
     folderStore.createFolder(folderName);
 
-    navigation.navigate(ScreenName.FOLDER_LIST_ALL);
+    navigation.navigate(ScreenName.FOLDERS_LIST_ALL);
   }, [folderName, navigation, folderStore]);
 
   useLayoutEffect(() => {

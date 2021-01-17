@@ -1,17 +1,19 @@
 import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { ScreenName } from '@constants';
-import { FolderList, Settings } from '@screens';
+import { FoldersStack } from './folders.stack';
+import { SettingsStack } from './settings.stack';
 
 export const BottomStack: FC = () => {
   const { Navigator, Screen } = createBottomTabNavigator();
 
   return (
     <Navigator
-      initialRouteName={ScreenName.FOLDER_LIST}
+      initialRouteName={ScreenName.FOLDERS_STACK}
       tabBarOptions={{
         inactiveTintColor: 'grey',
         activeTintColor: 'rgb(0, 122, 255)',
@@ -22,18 +24,20 @@ export const BottomStack: FC = () => {
         },
       }}>
       <Screen
-        component={FolderList}
-        name={ScreenName.FOLDER_LIST}
-        options={{
+        component={FoldersStack}
+        name={ScreenName.FOLDERS_STACK}
+        options={({ route }) => ({
           tabBarLabel: 'Folders',
+
+          tabBarVisible: getFocusedRouteNameFromRoute(route) !== ScreenName.FOLDER,
           tabBarIcon: ({ focused }) => (
             <Icon style={styles.reguralIcon} name="folder" color={focused ? 'rgb(0, 122, 255)' : 'grey'} />
           ),
-        }}
+        })}
       />
       <Screen
-        name={ScreenName.SETTINGS}
-        component={Settings}
+        component={SettingsStack}
+        name={ScreenName.SETTINGS_STACK}
         options={{
           tabBarLabel: 'Settings',
           tabBarIcon: ({ focused }) => (
