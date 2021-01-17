@@ -4,8 +4,8 @@ import React from 'react';
 import Amplify from 'aws-amplify';
 import { StatusBar } from 'react-native';
 
+import { RootStack } from '@stacks';
 import awsconfig from '../aws-exports';
-import { RootStack } from '@navigation';
 import { RootStoreContext, rootStore } from '@stores';
 
 Amplify.configure(awsconfig);

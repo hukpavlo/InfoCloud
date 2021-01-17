@@ -2,9 +2,9 @@ import { useNavigation } from '@react-navigation/native';
 import React, { FC, useLayoutEffect, useRef, useState } from 'react';
 import { Alert, StatusBar, TextInput, SafeAreaView } from 'react-native';
 
-import { HeaderButton, Input } from '@components';
-import { ScreenName } from '@constants';
 import { useStores } from '@stores';
+import { ScreenName } from '@constants';
+import { HeaderButton, Input } from '@components';
 
 export const FolderCreate: FC = () => {
   const navigation = useNavigation();
