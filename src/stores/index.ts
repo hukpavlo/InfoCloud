@@ -8,9 +8,7 @@ const RootStore = types.model({
 });
 
 export const rootStore = RootStore.create({
-  folderStore: FolderStore.create({
-    folders: [],
-  }),
+  folderStore: FolderStore.create(),
 });
 
 export const RootStoreContext = createContext<Instance<typeof RootStore>>(rootStore);
