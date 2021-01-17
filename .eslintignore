@@ -1,3 +1,2 @@
-src/models
+src/datastore
 src/graphql
-src/typings/api.typing.ts

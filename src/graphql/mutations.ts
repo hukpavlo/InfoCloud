@@ -10,6 +10,7 @@ export const createFolder = /* GraphQL */ `
     createFolder(input: $input, condition: $condition) {
       id
       name
+      thumb
       _version
       _deleted
       _lastChangedAt
@@ -27,6 +28,7 @@ export const updateFolder = /* GraphQL */ `
     updateFolder(input: $input, condition: $condition) {
       id
       name
+      thumb
       _version
       _deleted
       _lastChangedAt
@@ -44,6 +46,7 @@ export const deleteFolder = /* GraphQL */ `
     deleteFolder(input: $input, condition: $condition) {
       id
       name
+      thumb
       _version
       _deleted
       _lastChangedAt

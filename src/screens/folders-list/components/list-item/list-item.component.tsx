@@ -3,11 +3,14 @@ import { useNavigation } from '@react-navigation/native';
 import { View, StyleSheet, Image, Text, TouchableHighlight } from 'react-native';
 
 import { ScreenName } from '@constants';
+import { useStores } from '@stores';
 
-export const ListItem: FC<any> = ({ name, thumb }) => {
+export const ListItem: FC<any> = ({ name, thumb, id }) => {
   const navigation = useNavigation();
+  const { folderStore } = useStores();
 
   const onPress = () => {
+    folderStore.setActiveFolder(id);
     navigation.navigate(ScreenName.FOLDER);
   };
 

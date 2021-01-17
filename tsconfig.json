@@ -2,7 +2,7 @@
   "compilerOptions": {
     "lib": ["es6"],
     "noEmit": true,
-    "strict": true,
+    "strict": false,
     "allowJs": true,
     "baseUrl": "./",
     "target": "esnext",
@@ -16,11 +16,11 @@
       "@assets": ["assets"],
       "@hooks": ["src/hooks"],
       "@config": ["src/config"],
-      "@models": ["src/models"],
       "@stacks": ["src/stacks"],
       "@stores": ["src/stores"],
+      "@models": ["src/models"],
       "@screens": ["src/screens"],
-      "@typings": ["src/typings"],
+      "@datastore": ["src/datastore"],
       "@constants": ["src/constants"],
       "@components": ["src/components"]
     }

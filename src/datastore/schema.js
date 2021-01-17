@@ -16,6 +16,13 @@ export const schema = {
                     "type": "String",
                     "isRequired": true,
                     "attributes": []
+                },
+                "thumb": {
+                    "name": "thumb",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
                 }
             },
             "syncable": true,
@@ -49,5 +56,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "2f60cd2158a9103a78c69aeb742fc3cb"
+    "version": "f8cb82e58b8b78badb28461b7385f9d1"
 };

@@ -7,6 +7,7 @@ export const onCreateFolder = /* GraphQL */ `
     onCreateFolder(owner: $owner) {
       id
       name
+      thumb
       _version
       _deleted
       _lastChangedAt
@@ -21,6 +22,7 @@ export const onUpdateFolder = /* GraphQL */ `
     onUpdateFolder(owner: $owner) {
       id
       name
+      thumb
       _version
       _deleted
       _lastChangedAt
@@ -35,6 +37,7 @@ export const onDeleteFolder = /* GraphQL */ `
     onDeleteFolder(owner: $owner) {
       id
       name
+      thumb
       _version
       _deleted
       _lastChangedAt
