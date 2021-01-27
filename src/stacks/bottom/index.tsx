@@ -28,7 +28,6 @@ export const BottomStack: FC = () => {
         name={ScreenName.FOLDERS_STACK}
         options={({ route }) => ({
           tabBarLabel: 'Folders',
-
           tabBarVisible: getFocusedRouteNameFromRoute(route) !== ScreenName.FOLDER,
           tabBarIcon: ({ focused }) => (
             <Icon style={styles.reguralIcon} name="folder" color={focused ? 'rgb(0, 122, 255)' : 'grey'} />

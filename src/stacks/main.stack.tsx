@@ -1,18 +1,45 @@
 import React, { FC } from 'react';
 import { useWindowDimensions } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, HeaderStyleInterpolators } from '@react-navigation/stack';
 
 import { Folder } from '@screens';
 import { BottomStack } from './bottom';
 import { ScreenName } from '@constants';
+import { HeaderButton } from '@components';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 export const MainStack: FC = () => {
   const { width } = useWindowDimensions();
   const { Navigator, Screen } = createStackNavigator();
 
   return (
-    <Navigator initialRouteName={ScreenName.MAIN_STACK}>
-      <Screen name={ScreenName.MAIN_STACK} component={BottomStack} options={{ headerShown: false }} />
+    <Navigator initialRouteName={ScreenName.BOTTOM_STACK}>
+      <Screen
+        component={BottomStack}
+        name={ScreenName.BOTTOM_STACK}
+        options={({ navigation, route }) => {
+          switch (getFocusedRouteNameFromRoute(route)) {
+            case ScreenName.SETTINGS_STACK:
+              return {
+                headerTitle: 'Settings',
+              };
+
+            case ScreenName.FOLDERS_STACK:
+            default:
+              return {
+                headerTitle: 'Folders',
+                headerRight: () => (
+                  <HeaderButton
+                    title="Create"
+                    onPress={() => {
+                      navigation.navigate(ScreenName.FOLDER_CREATE_MODAL);
+                    }}
+                  />
+                ),
+              };
+          }
+        }}
+      />
 
       <Screen
         component={Folder}
@@ -20,6 +47,7 @@ export const MainStack: FC = () => {
         options={{
           headerBackTitle: 'Folders',
           gestureResponseDistance: { horizontal: width },
+          headerStyleInterpolator: HeaderStyleInterpolators.forUIKit,
         }}
       />
     </Navigator>

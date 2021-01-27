@@ -9,22 +9,8 @@ export const FoldersStack: FC = () => {
   const { Navigator, Screen } = createStackNavigator();
 
   return (
-    <Navigator initialRouteName={ScreenName.TOP_STACK}>
-      <Screen
-        component={TopStack}
-        name={ScreenName.TOP_STACK}
-        options={({ navigation }) => ({
-          headerTitle: 'Folders',
-          headerRight: () => (
-            <HeaderButton
-              title="Create"
-              onPress={() => {
-                navigation.navigate(ScreenName.FOLDER_CREATE_MODAL);
-              }}
-            />
-          ),
-        })}
-      />
+    <Navigator initialRouteName={ScreenName.TOP_STACK} screenOptions={{ headerShown: false }}>
+      <Screen component={TopStack} name={ScreenName.TOP_STACK} />
     </Navigator>
   );
 };

@@ -8,7 +8,7 @@ export const SettingsStack: FC = () => {
   const { Navigator, Screen } = createStackNavigator();
 
   return (
-    <Navigator initialRouteName={ScreenName.SETTINGS}>
+    <Navigator initialRouteName={ScreenName.SETTINGS} screenOptions={{ headerShown: false }}>
       <Screen
         component={Settings}
         name={ScreenName.SETTINGS}
