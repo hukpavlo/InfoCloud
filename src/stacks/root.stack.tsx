@@ -14,8 +14,15 @@ export const RootStack: FC = () => {
 
   return (
     <NavigationContainer>
-      <Navigator initialRouteName={ScreenName.MAIN_STACK} screenOptions={{ cardOverlayEnabled: true }} mode="modal">
-        <Screen name={ScreenName.MAIN_STACK} component={MainStack} options={{ headerShown: false }} />
+      <Navigator
+        mode="modal"
+        initialRouteName={ScreenName.MAIN_STACK}
+        screenOptions={{ cardOverlayEnabled: true }}>
+        <Screen
+          component={MainStack}
+          name={ScreenName.MAIN_STACK}
+          options={{ headerShown: false }}
+        />
 
         <Screen
           component={FolderCreate}

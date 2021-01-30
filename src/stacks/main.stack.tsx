@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { useWindowDimensions } from 'react-native';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createStackNavigator, HeaderStyleInterpolators } from '@react-navigation/stack';
 
 import { Folder } from '@screens';
 import { BottomStack } from './bottom';
 import { ScreenName } from '@constants';
 import { HeaderButton } from '@components';
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 export const MainStack: FC = () => {
   const { width } = useWindowDimensions();

@@ -4,9 +4,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Settings } from '@screens';
 import { ScreenName } from '@constants';
 
-export const SettingsStack: FC = () => {
-  const { Navigator, Screen } = createStackNavigator();
+const { Navigator, Screen } = createStackNavigator();
 
+export const SettingsStack: FC = () => {
   return (
     <Navigator initialRouteName={ScreenName.SETTINGS} screenOptions={{ headerShown: false }}>
       <Screen

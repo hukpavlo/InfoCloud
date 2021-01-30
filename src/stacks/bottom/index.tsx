@@ -8,9 +8,9 @@ import { ScreenName } from '@constants';
 import { FoldersStack } from './folders.stack';
 import { SettingsStack } from './settings.stack';
 
-export const BottomStack: FC = () => {
-  const { Navigator, Screen } = createBottomTabNavigator();
+const { Navigator, Screen } = createBottomTabNavigator();
 
+export const BottomStack: FC = () => {
   return (
     <Navigator
       initialRouteName={ScreenName.FOLDERS_STACK}
@@ -30,7 +30,11 @@ export const BottomStack: FC = () => {
           tabBarLabel: 'Folders',
           tabBarVisible: getFocusedRouteNameFromRoute(route) !== ScreenName.FOLDER,
           tabBarIcon: ({ focused }) => (
-            <Icon style={styles.reguralIcon} name="folder" color={focused ? 'rgb(0, 122, 255)' : 'grey'} />
+            <Icon
+              name="folder"
+              style={styles.reguralIcon}
+              color={focused ? 'rgb(0, 122, 255)' : 'grey'}
+            />
           ),
         })}
       />
@@ -40,7 +44,11 @@ export const BottomStack: FC = () => {
         options={{
           tabBarLabel: 'Settings',
           tabBarIcon: ({ focused }) => (
-            <Icon style={styles.smallIcon} name="cog" color={focused ? 'rgb(0, 122, 255)' : 'grey'} />
+            <Icon
+              name="cog"
+              style={styles.smallIcon}
+              color={focused ? 'rgb(0, 122, 255)' : 'grey'}
+            />
           ),
         }}
       />

@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
+import React, { memo } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, StyleSheet, Image, Text, TouchableHighlight } from 'react-native';
 
 import { ScreenName } from '@constants';
 import { useStores } from '@stores';
 
-export const ListItem: FC<any> = ({ name, thumb, id }) => {
+export const ListItem = memo<any>(({ name, thumb, id }) => {
   const navigation = useNavigation();
   const { folderStore } = useStores();
 
@@ -24,7 +24,7 @@ export const ListItem: FC<any> = ({ name, thumb, id }) => {
       </View>
     </TouchableHighlight>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {

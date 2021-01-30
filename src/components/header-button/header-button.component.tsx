@@ -9,7 +9,11 @@ export const HeaderButton: FC<HeaderButtonProps> = ({
   disabled = false,
   color = 'rgb(0, 122, 255)',
 }) => (
-  <TouchableOpacity disabled={disabled} style={styles.container} onPress={onPress} activeOpacity={0.4}>
+  <TouchableOpacity
+    onPress={onPress}
+    activeOpacity={0.4}
+    disabled={disabled}
+    style={styles.container}>
     <Text style={[styles.text, { color }, disabled && styles.disabled]}>{title}</Text>
   </TouchableOpacity>
 );
