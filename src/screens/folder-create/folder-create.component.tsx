@@ -7,6 +7,7 @@ import {
   StatusBar,
   TextInput,
   StyleSheet,
+  SafeAreaView,
   TouchableWithoutFeedback,
 } from 'react-native';
 
@@ -59,7 +60,7 @@ export const FolderCreate: FC = () => {
   return (
     <Fragment>
       <StatusBar barStyle="light-content" />
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <TouchableWithoutFeedback onPress={() => setIsModalVisible(true)}>
           <View style={styles.photoContainer}>
             <View style={styles.photo}>
@@ -80,7 +81,7 @@ export const FolderCreate: FC = () => {
           onChangeText={setFolderName}
           style={[styles.input, { width: inputWidth }]}
         />
-      </View>
+      </SafeAreaView>
       <PhotoActionSheet visible={isModalVisible} hide={() => setIsModalVisible(false)} />
     </Fragment>
   );

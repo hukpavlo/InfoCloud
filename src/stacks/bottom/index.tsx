@@ -59,10 +59,12 @@ export const BottomStack: FC = () => {
 const styles = StyleSheet.create({
   reguralIcon: {
     width: 30,
+    height: 30,
     fontSize: 30,
   },
   smallIcon: {
     width: 35,
+    height: 35,
     fontSize: 35,
   },
 });
