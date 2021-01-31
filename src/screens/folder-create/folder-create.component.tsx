@@ -14,6 +14,7 @@ import { useStores } from '@stores';
 import { useInputWidth } from '@hooks';
 import { ScreenName } from '@constants';
 import { HeaderButton } from '@components';
+import { PhotoActionSheet } from './components';
 import {
   PHOTO_PADDING,
   CAMERA_ICON_SIZE,
@@ -26,6 +27,7 @@ export const FolderCreate: FC = () => {
   const { folderStore } = useStores();
   const inputRef = useRef<TextInput>(null);
   const [folderName, setFolderName] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const inputWidth = useInputWidth(INPUT_LEFT_COMPONENT_WIDTH);
 
   const onSubmit = React.useCallback(() => {
@@ -58,18 +60,7 @@ export const FolderCreate: FC = () => {
     <Fragment>
       <StatusBar barStyle="light-content" />
       <View style={styles.container}>
-        <TouchableWithoutFeedback
-          onPress={() => {
-            Alert.alert('Empty folder name', 'Please enter a valid folder name.', [
-              {
-                text: 'OK',
-                onPress: () => {
-                  setFolderName('');
-                  inputRef.current?.focus();
-                },
-              },
-            ]);
-          }}>
+        <TouchableWithoutFeedback onPress={() => setIsModalVisible(true)}>
           <View style={styles.photoContainer}>
             <View style={styles.photo}>
               <Icon name="camera" size={CAMERA_ICON_SIZE} color="rgb(0, 122, 255)" />
@@ -87,9 +78,10 @@ export const FolderCreate: FC = () => {
           placeholder="Folder name"
           onSubmitEditing={onSubmit}
           onChangeText={setFolderName}
-          style={StyleSheet.flatten([styles.input, { width: inputWidth }])}
+          style={[styles.input, { width: inputWidth }]}
         />
       </View>
+      <PhotoActionSheet visible={isModalVisible} hide={() => setIsModalVisible(false)} />
     </Fragment>
   );
 };
