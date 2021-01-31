@@ -1,6 +1,6 @@
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
-import React, { FC, Fragment, useLayoutEffect, useRef, useState } from 'react';
+import React, { FC, Fragment, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import {
   View,
   Alert,
@@ -31,8 +31,10 @@ export const FolderCreate: FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const inputWidth = useInputWidth(INPUT_LEFT_COMPONENT_WIDTH);
 
-  const onSubmit = React.useCallback(() => {
-    if (!folderName.trim()) {
+  const onSubmit = useCallback(() => {
+    const trimmedName = folderName.trim();
+
+    if (!trimmedName) {
       return Alert.alert('Empty folder name', 'Please enter a valid folder name.', [
         {
           text: 'OK',
@@ -44,7 +46,7 @@ export const FolderCreate: FC = () => {
       ]);
     }
 
-    folderStore.createFolder(folderName);
+    folderStore.createFolder(trimmedName);
 
     navigation.navigate(ScreenName.FOLDERS_LIST_ALL);
   }, [folderName, navigation, folderStore]);

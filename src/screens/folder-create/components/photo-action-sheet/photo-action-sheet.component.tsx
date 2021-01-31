@@ -26,9 +26,6 @@ export const PhotoActionSheet: FC<PhotoActionSheetProps> = ({ visible, hide }) =
       ]}>
       <View style={styles.mainContainer}>
         <PhotoFeed />
-        <TouchableHighlight onPress={() => {}} underlayColor="#e5e5e5" style={styles.button}>
-          <Text style={styles.buttonText}>Open Gallery</Text>
-        </TouchableHighlight>
       </View>
 
       <TouchableHighlight

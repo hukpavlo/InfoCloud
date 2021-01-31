@@ -1,14 +1,17 @@
 import { Instance, types } from 'mobx-state-tree';
 import { createContext, useContext } from 'react';
 
+import { PhotoStore } from './photo.store';
 import { FolderStore } from './folder.store';
 
 const RootStore = types.model({
+  photoStore: PhotoStore,
   folderStore: FolderStore,
 });
 
 export const rootStore = RootStore.create({
-  folderStore: FolderStore.create(),
+  photoStore: {},
+  folderStore: {},
 });
 
 export const RootStoreContext = createContext<Instance<typeof RootStore>>(rootStore);

@@ -15,7 +15,11 @@ export const FolderStore = types
     activeFolder: types.safeReference(FolderModel),
   })
   .actions((self) => {
-    const parseFolder = ({ id, name, thumb }: Folder): Instance<typeof FolderModel> => ({ id, name, thumb });
+    const parseFolder = ({ id, name, thumb }: Folder): Instance<typeof FolderModel> => ({
+      id,
+      name,
+      thumb,
+    });
 
     return {
       afterCreate: flow(function* () {
@@ -27,7 +31,8 @@ export const FolderStore = types
         const newFolder: Folder = yield DataStore.save(
           new Folder({
             name,
-            thumb: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg',
+            thumb:
+              'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg',
           }),
         );
 
