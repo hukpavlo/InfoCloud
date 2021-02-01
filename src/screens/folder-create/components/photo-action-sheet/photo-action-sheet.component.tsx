@@ -1,21 +1,28 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Modal from 'react-native-modal';
+import { observer } from 'mobx-react-lite';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Text, View, StyleSheet, TouchableHighlight } from 'react-native';
 
+import { useStores } from '@stores';
 import { PhotoFeed } from '../photo-feed';
 import { PhotoActionSheetProps } from './photo-action-sheet.props';
 
-export const PhotoActionSheet: FC<PhotoActionSheetProps> = ({ visible, hide }) => {
+export const PhotoActionSheet = observer<PhotoActionSheetProps>(() => {
+  const { folderStore } = useStores();
   const { bottom, left, right } = useSafeAreaInsets();
+
+  const hideModal = () => {
+    folderStore.setIsPhotoActionSheetVisible(false);
+  };
 
   return (
     <Modal
-      isVisible={visible}
       backdropOpacity={0.3}
       useNativeDriver={true}
-      onBackdropPress={hide}
+      onBackdropPress={hideModal}
       useNativeDriverForBackdrop={true}
+      isVisible={folderStore.isPhotoActionSheetVisible}
       style={[
         styles.modal,
         {
@@ -26,17 +33,23 @@ export const PhotoActionSheet: FC<PhotoActionSheetProps> = ({ visible, hide }) =
       ]}>
       <View style={styles.mainContainer}>
         <PhotoFeed />
+        <TouchableHighlight
+          style={styles.button}
+          underlayColor="#e5e5e5"
+          onPress={() => folderStore.getNewFolderThumbFromGallery()}>
+          <Text style={styles.buttonText}>Open Gallery</Text>
+        </TouchableHighlight>
       </View>
 
       <TouchableHighlight
-        onPress={hide}
+        onPress={hideModal}
         underlayColor="#e5e5e5"
         style={[styles.button, styles.cancelButton]}>
         <Text style={[styles.buttonText, styles.cancelButtonText]}>Cancel</Text>
       </TouchableHighlight>
     </Modal>
   );
-};
+});
 
 const styles = StyleSheet.create({
   modal: {

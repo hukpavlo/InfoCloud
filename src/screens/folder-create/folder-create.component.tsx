@@ -1,9 +1,11 @@
+import { observer } from 'mobx-react-lite';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
-import React, { FC, Fragment, useCallback, useLayoutEffect, useRef, useState } from 'react';
+import React, { Fragment, useCallback, useLayoutEffect, useRef } from 'react';
 import {
   View,
   Alert,
+  Image,
   StatusBar,
   TextInput,
   StyleSheet,
@@ -19,75 +21,84 @@ import { PhotoActionSheet } from './components';
 import {
   PHOTO_PADDING,
   CAMERA_ICON_SIZE,
+  FOLDER_THUMB_WIDTH,
   PHOTO_CONTAINER_PADDING,
   INPUT_LEFT_COMPONENT_WIDTH,
 } from './constants';
 
-export const FolderCreate: FC = () => {
+export const FolderCreate = observer(() => {
   const navigation = useNavigation();
   const { folderStore } = useStores();
   const inputRef = useRef<TextInput>(null);
-  const [folderName, setFolderName] = useState('');
-  const [isModalVisible, setIsModalVisible] = useState(false);
   const inputWidth = useInputWidth(INPUT_LEFT_COMPONENT_WIDTH);
 
   const onSubmit = useCallback(() => {
-    const trimmedName = folderName.trim();
+    const trimmedName = folderStore.newFolderName.trim();
 
     if (!trimmedName) {
       return Alert.alert('Empty folder name', 'Please enter a valid folder name.', [
         {
           text: 'OK',
           onPress: () => {
-            setFolderName('');
             inputRef.current?.focus();
+            folderStore.setNewFolderName('');
           },
         },
       ]);
     }
 
-    folderStore.createFolder(trimmedName);
+    folderStore.createFolder();
 
     navigation.navigate(ScreenName.FOLDERS_LIST_ALL);
-  }, [folderName, navigation, folderStore]);
+  }, [navigation, folderStore]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <HeaderButton title="Save" disabled={!folderName.length} onPress={onSubmit} />
+        <HeaderButton
+          title="Save"
+          onPress={onSubmit}
+          disabled={!folderStore.newFolderName.length}
+        />
       ),
     });
-  }, [navigation, folderName, onSubmit]);
+  }, [navigation, onSubmit, folderStore.newFolderName]);
 
   return (
     <Fragment>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.container}>
-        <TouchableWithoutFeedback onPress={() => setIsModalVisible(true)}>
+        <TouchableWithoutFeedback onPress={() => folderStore.setIsPhotoActionSheetVisible(true)}>
           <View style={styles.photoContainer}>
-            <View style={styles.photo}>
-              <Icon name="camera" size={CAMERA_ICON_SIZE} color="rgb(0, 122, 255)" />
-            </View>
+            {folderStore.newFolderThumbPath ? (
+              <View style={styles.thumbContainer}>
+                <Image source={{ uri: folderStore.newFolderThumbPath }} style={styles.thumb} />
+              </View>
+            ) : (
+              <View style={styles.photo}>
+                <Icon name="camera" size={CAMERA_ICON_SIZE} color="rgb(0, 122, 255)" />
+              </View>
+            )}
           </View>
         </TouchableWithoutFeedback>
 
         <TextInput
           ref={inputRef}
           autoFocus={true}
-          value={folderName}
           returnKeyType="done"
           autoCapitalize="none"
           clearButtonMode="always"
           placeholder="Folder name"
           onSubmitEditing={onSubmit}
-          onChangeText={setFolderName}
+          value={folderStore.newFolderName}
+          onChangeText={folderStore.setNewFolderName}
           style={[styles.input, { width: inputWidth }]}
         />
       </SafeAreaView>
-      <PhotoActionSheet visible={isModalVisible} hide={() => setIsModalVisible(false)} />
+      <PhotoActionSheet />
     </Fragment>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -109,5 +120,14 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     fontWeight: '500',
     backgroundColor: '#fff',
+  },
+  thumbContainer: {
+    overflow: 'hidden',
+    width: FOLDER_THUMB_WIDTH,
+    borderRadius: FOLDER_THUMB_WIDTH,
+  },
+  thumb: {
+    width: '100%',
+    aspectRatio: 1,
   },
 });

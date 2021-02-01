@@ -1,4 +1,1 @@
-export type PhotoActionSheetProps = {
-  hide: () => void;
-  visible: boolean;
-};
+export type PhotoActionSheetProps = {};
