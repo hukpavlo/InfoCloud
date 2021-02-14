@@ -32,6 +32,8 @@ export const PhotoFeed = observer<PhotoFeedProps>(() => {
               style={styles.camera}
               type={RNCamera.Constants.Type.back}
               flashMode={RNCamera.Constants.FlashMode.on}
+              notAuthorizedView={<View style={styles.camera} />}
+              pendingAuthorizationView={<View style={styles.camera} />}
             />
             <Icon name="camera" size={50} color="#fff" style={styles.icon} />
           </View>
@@ -73,6 +75,7 @@ const styles = StyleSheet.create({
   camera: {
     width: '100%',
     height: '100%',
+    backgroundColor: 'black',
   },
   image: {
     width: 100,

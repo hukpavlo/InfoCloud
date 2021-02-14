@@ -36,7 +36,7 @@ export const PhotoActionSheet = observer<PhotoActionSheetProps>(() => {
         <TouchableHighlight
           style={styles.button}
           underlayColor="#e5e5e5"
-          onPress={() => folderStore.getNewFolderThumbFromGallery()}>
+          onPress={folderStore.getNewFolderThumbFromGallery}>
           <Text style={styles.buttonText}>Open Gallery</Text>
         </TouchableHighlight>
       </View>

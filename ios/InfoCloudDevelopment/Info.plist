@@ -38,11 +38,11 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>This lets you take photos, record videos and more within the app.</string>
+	<string>We need this so that you can take and share photos and videos.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This lets you do things like send from your camera roll and enables other features for photos and videos.</string>
+	<string>We need this so that you can share photos and videos from your photo library.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Ionicons.ttf</string>

@@ -1,9 +1,11 @@
+import { Alert } from 'react-native';
 import { DataStore } from '@aws-amplify/datastore';
 import { flow, Instance, types } from 'mobx-state-tree';
 import ImagePicker, { Image, PickerErrorCode } from 'react-native-image-crop-picker';
+import { openLimitedPhotoLibraryPicker, PERMISSIONS } from 'react-native-permissions';
 
 import { Folder } from '@datastore';
-import { Alert } from 'react-native';
+import { checkPermission } from '@helpers';
 
 const FolderModel = types.model({
   name: types.string,
@@ -39,6 +41,10 @@ export const FolderStore = types
         self.activeFolder = self.folders.find((folder) => folder.id === folderId);
       },
       setIsPhotoActionSheetVisible: (isPhotoActionSheetVisible: boolean) => {
+        if (isPhotoActionSheetVisible) {
+          openLimitedPhotoLibraryPicker();
+        }
+
         self.isPhotoActionSheetVisible = isPhotoActionSheetVisible;
       },
       createFolder: flow(function* () {
@@ -76,7 +82,13 @@ export const FolderStore = types
       }),
       getNewFolderThumbFromCamera: flow(function* () {
         try {
-          const image: Image = yield ImagePicker.openCamera({
+          const isPermissionAvailable: boolean = yield checkPermission(PERMISSIONS.IOS.CAMERA);
+
+          if (!isPermissionAvailable) {
+            return;
+          }
+
+          const { path }: Image = yield ImagePicker.openCamera({
             width: 50,
             height: 50,
             cropping: true,
@@ -84,10 +96,12 @@ export const FolderStore = types
             cropperCircleOverlay: true,
           });
 
-          self.newFolderThumbPath = image.path;
+          self.newFolderThumbPath = path;
           self.isPhotoActionSheetVisible = false;
         } catch (err) {
-          if ((err.code as PickerErrorCode) === 'E_PICKER_CANCELLED') {
+          const errCode: PickerErrorCode = err.code;
+
+          if (errCode === 'E_PICKER_CANCELLED') {
             return;
           }
 
@@ -95,8 +109,17 @@ export const FolderStore = types
         }
       }),
       getNewFolderThumbFromGallery: flow(function* () {
+        //TODO change statusbar color
         try {
-          const image: Image = yield ImagePicker.openPicker({
+          const isPermissionAvailable: boolean = yield checkPermission(
+            PERMISSIONS.IOS.PHOTO_LIBRARY,
+          );
+
+          if (!isPermissionAvailable) {
+            return;
+          }
+
+          const { path }: Image = yield ImagePicker.openPicker({
             width: 50,
             height: 50,
             cropping: true,
@@ -104,13 +127,16 @@ export const FolderStore = types
             cropperCircleOverlay: true,
           });
 
-          self.newFolderThumbPath = image.path;
+          self.newFolderThumbPath = path;
           self.isPhotoActionSheetVisible = false;
         } catch (err) {
-          if ((err.code as PickerErrorCode) === 'E_PICKER_CANCELLED') {
+          const errCode: PickerErrorCode = err.code;
+
+          if (errCode === 'E_PICKER_CANCELLED') {
             return;
           }
 
+          console.error(err);
           Alert.alert('Something went wrong');
         }
       }),

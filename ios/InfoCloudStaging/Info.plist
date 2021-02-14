@@ -57,9 +57,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This lets you do things like send from your camera roll and enables other features for photos and videos.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>This lets you take photos, record videos and more within the app.
+	<string>We need this so that you can take and share photos and videos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need this so that you can share photos and videos from your photo library.</string>
 </dict>
 </plist>

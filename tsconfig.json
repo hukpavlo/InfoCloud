@@ -20,6 +20,7 @@
       "@stores": ["src/stores"],
       "@models": ["src/models"],
       "@screens": ["src/screens"],
+      "@helpers": ["src/helpers"],
       "@datastore": ["src/datastore"],
       "@constants": ["src/constants"],
       "@components": ["src/components"]

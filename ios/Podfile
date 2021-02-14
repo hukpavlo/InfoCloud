@@ -4,16 +4,21 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '10.0'
 
 abstract_target 'App' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  
   target 'InfoCloudDevelopment' do
-    #Development-specific pods
+    pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+    pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary"
   end
 
   target 'InfoCloudStaging' do
-    #Staging-specific pods
+    pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+    pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary"
   end
 
   target 'InfoCloud' do
-    #Production-specific pods
+    pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+    pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary"
   end
 
   config = use_native_modules!

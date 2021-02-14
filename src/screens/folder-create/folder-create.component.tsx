@@ -64,11 +64,15 @@ export const FolderCreate = observer(() => {
     });
   }, [navigation, onSubmit, folderStore.newFolderName]);
 
+  const openPhotoActionSheet = () => {
+    folderStore.setIsPhotoActionSheetVisible(true);
+  };
+
   return (
     <Fragment>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.container}>
-        <TouchableWithoutFeedback onPress={() => folderStore.setIsPhotoActionSheetVisible(true)}>
+        <TouchableWithoutFeedback onPress={openPhotoActionSheet}>
           <View style={styles.photoContainer}>
             {folderStore.newFolderThumbPath ? (
               <View style={styles.thumbContainer}>
