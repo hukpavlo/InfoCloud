@@ -20,7 +20,6 @@
     "amazon-cognito-identity-js": "4.5.6",
     "aws-amplify": "3.3.13",
     "aws-amplify-react-native": "4.3.0",
-    "formik": "2.2.6",
     "mobx": "6.0.4",
     "mobx-react-lite": "3.1.6",
     "mobx-state-tree": "5.0.0",
