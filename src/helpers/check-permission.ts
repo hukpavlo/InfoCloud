@@ -38,7 +38,7 @@ export const checkPermission = async (permission: Permission): Promise<Permissio
       return PermissionCheckResult.LIMITED;
 
     case RESULTS.GRANTED:
-      return PermissionCheckResult.FAILED;
+      return PermissionCheckResult.SUCCESS;
 
     case RESULTS.DENIED:
       const requestResult = await request(permission);
