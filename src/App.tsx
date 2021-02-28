@@ -8,6 +8,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { RootStack } from '@stacks';
 import awsconfig from '../aws-exports';
+import { ActionSheet } from '@components';
 import { RootStoreContext, rootStore } from '@stores';
 
 Amplify.configure({
@@ -23,6 +24,7 @@ export const App = withAuthenticator(
       <RootStoreContext.Provider value={rootStore}>
         <StatusBar barStyle="dark-content" />
         <RootStack />
+        <ActionSheet />
       </RootStoreContext.Provider>
     </SafeAreaProvider>
   ),

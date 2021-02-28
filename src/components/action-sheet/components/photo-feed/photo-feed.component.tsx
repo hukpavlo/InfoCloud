@@ -3,15 +3,8 @@ import { observer } from 'mobx-react-lite';
 import { RNCamera } from 'react-native-camera';
 import Icon from 'react-native-vector-icons/Ionicons';
 import React, { useCallback, useEffect, useMemo } from 'react';
-import {
-  View,
-  Image,
-  FlatList,
-  Pressable,
-  StyleSheet,
-  ListRenderItem,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { View, Image, FlatList, StyleSheet, ListRenderItem } from 'react-native';
 
 import { useStores } from '@stores';
 import { PhotoFeedProps } from './photo-feed.props';
@@ -41,7 +34,9 @@ export const PhotoFeed = observer<PhotoFeedProps>(() => {
 
   const ListHeaderComponent = useMemo(
     () => (
-      <Pressable style={styles.cameraContainer} onPress={folderStore.getNewFolderThumbFromCamera}>
+      <TouchableWithoutFeedback
+        style={styles.cameraContainer}
+        onPress={folderStore.getNewFolderThumbFromCamera}>
         <RNCamera
           captureAudio={false}
           style={styles.camera}
@@ -51,7 +46,7 @@ export const PhotoFeed = observer<PhotoFeedProps>(() => {
           pendingAuthorizationView={<View style={styles.camera} />}
         />
         <Icon name="camera" size={50} color="#fff" style={styles.icon} />
-      </Pressable>
+      </TouchableWithoutFeedback>
     ),
     [folderStore],
   );

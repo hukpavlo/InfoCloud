@@ -48,12 +48,9 @@ export const ActionSheet: ActionSheetProps = () => {
         {options?.buttons.map(({ title, onPress }, index) => (
           <TouchableHighlight
             key={index}
+            onPress={onPress}
             style={styles.button}
-            underlayColor="#e5e5e5"
-            onPress={() => {
-              hide();
-              onPress();
-            }}>
+            underlayColor="#e5e5e5">
             <Text style={styles.buttonText}>{title}</Text>
           </TouchableHighlight>
         ))}

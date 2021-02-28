@@ -5,6 +5,7 @@ import { flow, Instance, types } from 'mobx-state-tree';
 import ImagePicker, { Image, PickerErrorCode } from 'react-native-image-crop-picker';
 
 import { Folder } from '@datastore';
+import { ActionSheet } from '@components';
 import { checkPermission } from '@helpers';
 import { PermissionCheckResult } from '@constants';
 
@@ -17,7 +18,6 @@ const FolderModel = types.model({
 export const FolderStore = types
   .model({
     newFolderName: '',
-    isPhotoActionSheetVisible: false,
     folders: types.array(FolderModel),
     activeFolder: types.safeReference(FolderModel),
     newFolderThumbPath: types.maybeNull(types.string),
@@ -41,9 +41,6 @@ export const FolderStore = types
       setActiveFolder: (folderId: string) => {
         self.activeFolder = self.folders.find((folder) => folder.id === folderId);
       },
-      setIsPhotoActionSheetVisible: (isPhotoActionSheetVisible: boolean) => {
-        self.isPhotoActionSheetVisible = isPhotoActionSheetVisible;
-      },
       createFolder: flow(function* () {
         const newFolder: Folder = yield DataStore.save(
           new Folder({
@@ -57,8 +54,8 @@ export const FolderStore = types
         self.folders.push(parseFolder(newFolder));
       }),
       removeNewFolderThumb: () => {
+        ActionSheet.hide();
         self.newFolderThumbPath = null;
-        self.isPhotoActionSheetVisible = false;
       },
       getNewFolderThumb: flow<void, [string]>(function* (path) {
         try {
@@ -71,8 +68,8 @@ export const FolderStore = types
             cropperCircleOverlay: true,
           });
 
+          ActionSheet.hide();
           self.newFolderThumbPath = image.path;
-          self.isPhotoActionSheetVisible = false;
         } catch (err) {
           if ((err.code as PickerErrorCode) === 'E_PICKER_CANCELLED') {
             return;
@@ -97,8 +94,8 @@ export const FolderStore = types
             cropperCircleOverlay: true,
           });
 
+          ActionSheet.hide();
           self.newFolderThumbPath = path;
-          self.isPhotoActionSheetVisible = false;
         } catch (err) {
           const errCode: PickerErrorCode = err.code;
 
@@ -129,8 +126,8 @@ export const FolderStore = types
             cropperCircleOverlay: true,
           });
 
+          ActionSheet.hide();
           self.newFolderThumbPath = path;
-          self.isPhotoActionSheetVisible = false;
         } catch (err) {
           const errCode: PickerErrorCode = err.code;
 

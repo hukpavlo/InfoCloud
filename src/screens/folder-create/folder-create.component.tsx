@@ -16,8 +16,7 @@ import {
 import { useStores } from '@stores';
 import { useInputWidth } from '@hooks';
 import { ScreenName } from '@constants';
-import { HeaderButton } from '@components';
-import { PhotoActionSheet } from './components';
+import { ActionSheet, HeaderButton } from '@components';
 import {
   PHOTO_PADDING,
   CAMERA_ICON_SIZE,
@@ -65,7 +64,13 @@ export const FolderCreate = observer(() => {
   }, [navigation, onSubmit, folderStore.newFolderName]);
 
   const openPhotoActionSheet = () => {
-    folderStore.setIsPhotoActionSheetVisible(true);
+    ActionSheet.showWithOptions({
+      hasPhotoFeed: true,
+      buttons: [
+        { title: 'Open Gallery', onPress: folderStore.getNewFolderThumbFromGallery },
+        { title: 'Remove Photo', onPress: folderStore.removeNewFolderThumb },
+      ],
+    });
   };
 
   return (
@@ -98,7 +103,6 @@ export const FolderCreate = observer(() => {
           style={[styles.input, { width: inputWidth }]}
         />
       </SafeAreaView>
-      <PhotoActionSheet />
     </Fragment>
   );
 });
