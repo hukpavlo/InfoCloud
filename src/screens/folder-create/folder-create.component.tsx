@@ -6,11 +6,11 @@ import {
   View,
   Alert,
   Image,
+  Pressable,
   StatusBar,
   TextInput,
   StyleSheet,
   SafeAreaView,
-  TouchableWithoutFeedback,
 } from 'react-native';
 
 import { useStores } from '@stores';
@@ -72,19 +72,17 @@ export const FolderCreate = observer(() => {
     <Fragment>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.container}>
-        <TouchableWithoutFeedback onPress={openPhotoActionSheet}>
-          <View style={styles.photoContainer}>
-            {folderStore.newFolderThumbPath ? (
-              <View style={styles.thumbContainer}>
-                <Image source={{ uri: folderStore.newFolderThumbPath }} style={styles.thumb} />
-              </View>
-            ) : (
-              <View style={styles.photo}>
-                <Icon name="camera" size={CAMERA_ICON_SIZE} color="rgb(0, 122, 255)" />
-              </View>
-            )}
-          </View>
-        </TouchableWithoutFeedback>
+        <Pressable style={styles.photoContainer} onPress={openPhotoActionSheet}>
+          {folderStore.newFolderThumbPath ? (
+            <View style={styles.thumbContainer}>
+              <Image source={{ uri: folderStore.newFolderThumbPath }} style={styles.thumb} />
+            </View>
+          ) : (
+            <View style={styles.photo}>
+              <Icon name="camera" size={CAMERA_ICON_SIZE} color="rgb(0, 122, 255)" />
+            </View>
+          )}
+        </Pressable>
 
         <TextInput
           ref={inputRef}

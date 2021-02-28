@@ -8,7 +8,6 @@ export type ActionSheetOptions = {
   hasPhotoFeed?: boolean;
   buttons: {
     title: string;
-    keepOpen?: boolean;
     onPress: () => void;
   }[];
 };

@@ -45,15 +45,14 @@ export const ActionSheet: ActionSheetProps = () => {
       ]}>
       <View style={styles.mainContainer}>
         {options?.hasPhotoFeed && <PhotoFeed />}
-        {options?.buttons.map(({ title, onPress, keepOpen }, index) => (
+        {options?.buttons.map(({ title, onPress }, index) => (
           <TouchableHighlight
             key={index}
             style={styles.button}
             underlayColor="#e5e5e5"
             onPress={() => {
-              console.log('!!!!!!!!!!!!!!!');
+              hide();
               onPress();
-              !keepOpen && hide();
             }}>
             <Text style={styles.buttonText}>{title}</Text>
           </TouchableHighlight>
