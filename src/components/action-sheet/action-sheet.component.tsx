@@ -1,28 +1,40 @@
-import React from 'react';
 import Modal from 'react-native-modal';
-import { observer } from 'mobx-react-lite';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import React, { createRef, useImperativeHandle, useState } from 'react';
 import { Text, View, StyleSheet, TouchableHighlight } from 'react-native';
 
-import { useStores } from '@stores';
-import { PhotoFeed } from '../photo-feed';
-import { PhotoActionSheetProps } from './photo-action-sheet.props';
+import { PhotoFeed } from './components';
+import { ActionSheetProps } from './action-sheet.props';
+import { ActionSheetOptions, ActionSheetRef } from './models';
 
-export const PhotoActionSheet = observer<PhotoActionSheetProps>(() => {
-  const { folderStore } = useStores();
+const actionSheetRef = createRef<ActionSheetRef>();
+
+export const ActionSheet: ActionSheetProps = () => {
   const { bottom, left, right } = useSafeAreaInsets();
+  const [options, setOptions] = useState<ActionSheetOptions>(null);
 
-  const hideModal = () => {
-    folderStore.setIsPhotoActionSheetVisible(false);
-  };
+  useImperativeHandle<ActionSheetRef, ActionSheetRef>(
+    actionSheetRef,
+    () => ({
+      showWithOptions(opts) {
+        setOptions({ ...opts, isVisible: true });
+      },
+      hide() {
+        hide();
+      },
+    }),
+    [],
+  );
+
+  const hide = () => setOptions(null);
 
   return (
     <Modal
       backdropOpacity={0.3}
       useNativeDriver={true}
-      onBackdropPress={hideModal}
+      onBackdropPress={hide}
+      isVisible={options?.isVisible}
       useNativeDriverForBackdrop={true}
-      isVisible={folderStore.isPhotoActionSheetVisible}
       style={[
         styles.modal,
         {
@@ -32,33 +44,39 @@ export const PhotoActionSheet = observer<PhotoActionSheetProps>(() => {
         },
       ]}>
       <View style={styles.mainContainer}>
-        <PhotoFeed />
-        <TouchableHighlight
-          underlayColor="#e5e5e5"
-          style={[styles.button, styles.firstButton]}
-          onPress={folderStore.getNewFolderThumbFromGallery}>
-          <Text style={styles.buttonText}>Open Gallery</Text>
-        </TouchableHighlight>
-
-        {folderStore.newFolderThumbPath && (
+        {options?.hasPhotoFeed && <PhotoFeed />}
+        {options?.buttons.map(({ title, onPress, keepOpen }, index) => (
           <TouchableHighlight
+            key={index}
             style={styles.button}
             underlayColor="#e5e5e5"
-            onPress={folderStore.removeNewFolderThumb}>
-            <Text style={[styles.buttonText, styles.destructiveButtonText]}>Remove Photo</Text>
+            onPress={() => {
+              console.log('!!!!!!!!!!!!!!!');
+              onPress();
+              !keepOpen && hide();
+            }}>
+            <Text style={styles.buttonText}>{title}</Text>
           </TouchableHighlight>
-        )}
+        ))}
       </View>
 
       <TouchableHighlight
-        onPress={hideModal}
+        onPress={hide}
         underlayColor="#e5e5e5"
         style={[styles.button, styles.cancelButton]}>
         <Text style={[styles.buttonText, styles.cancelButtonText]}>Cancel</Text>
       </TouchableHighlight>
     </Modal>
   );
-});
+};
+
+ActionSheet.showWithOptions = (options) => {
+  actionSheetRef.current?.showWithOptions(options);
+};
+
+ActionSheet.hide = () => {
+  actionSheetRef.current?.hide();
+};
 
 const styles = StyleSheet.create({
   modal: {
@@ -82,22 +100,14 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 55,
-    borderTopWidth: 0.5,
     alignItems: 'center',
     backgroundColor: '#fff',
     justifyContent: 'center',
-    borderTopColor: '#cacaca',
-  },
-  firstButton: {
-    borderTopWidth: 0,
   },
   buttonText: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '400',
     color: 'rgb(0, 122, 255)',
-  },
-  destructiveButtonText: {
-    color: 'red',
   },
   cancelButtonText: {
     fontWeight: '500',

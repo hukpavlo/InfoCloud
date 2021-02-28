@@ -1,11 +1,12 @@
-import { Alert } from 'react-native';
+import { Alert, StatusBar } from 'react-native';
 import { DataStore } from '@aws-amplify/datastore';
+import { PERMISSIONS } from 'react-native-permissions';
 import { flow, Instance, types } from 'mobx-state-tree';
 import ImagePicker, { Image, PickerErrorCode } from 'react-native-image-crop-picker';
-import { openLimitedPhotoLibraryPicker, PERMISSIONS } from 'react-native-permissions';
 
 import { Folder } from '@datastore';
 import { checkPermission } from '@helpers';
+import { PermissionCheckResult } from '@constants';
 
 const FolderModel = types.model({
   name: types.string,
@@ -41,10 +42,6 @@ export const FolderStore = types
         self.activeFolder = self.folders.find((folder) => folder.id === folderId);
       },
       setIsPhotoActionSheetVisible: (isPhotoActionSheetVisible: boolean) => {
-        if (isPhotoActionSheetVisible) {
-          openLimitedPhotoLibraryPicker();
-        }
-
         self.isPhotoActionSheetVisible = isPhotoActionSheetVisible;
       },
       createFolder: flow(function* () {
@@ -59,6 +56,10 @@ export const FolderStore = types
         self.newFolderThumbPath = null;
         self.folders.push(parseFolder(newFolder));
       }),
+      removeNewFolderThumb: () => {
+        self.newFolderThumbPath = null;
+        self.isPhotoActionSheetVisible = false;
+      },
       getNewFolderThumb: flow<void, [string]>(function* (path) {
         try {
           const image: Image = yield ImagePicker.openCropper({
@@ -109,13 +110,14 @@ export const FolderStore = types
         }
       }),
       getNewFolderThumbFromGallery: flow(function* () {
-        //TODO change statusbar color
         try {
-          const isPermissionAvailable: boolean = yield checkPermission(
+          StatusBar.setBarStyle('dark-content', true);
+
+          const permissionCheckResult: PermissionCheckResult = yield checkPermission(
             PERMISSIONS.IOS.PHOTO_LIBRARY,
           );
 
-          if (!isPermissionAvailable) {
+          if (permissionCheckResult === PermissionCheckResult.FAILED) {
             return;
           }
 

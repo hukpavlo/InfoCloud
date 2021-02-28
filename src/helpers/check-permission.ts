@@ -6,8 +6,9 @@ import {
   Permission,
   PERMISSIONS,
   openSettings,
-  openLimitedPhotoLibraryPicker,
 } from 'react-native-permissions';
+
+import { PermissionCheckResult } from '@constants';
 
 const getDescription = (permission: Permission) => {
   switch (permission) {
@@ -18,35 +19,34 @@ const getDescription = (permission: Permission) => {
   }
 };
 
-export const checkPermission = async (permission: Permission): Promise<boolean> => {
+export const checkPermission = async (permission: Permission): Promise<PermissionCheckResult> => {
   const checkResult = await check(permission);
 
   switch (checkResult) {
     case RESULTS.UNAVAILABLE:
       Alert.alert('This feature is not available on this device');
-      return false;
+      return PermissionCheckResult.FAILED;
 
     case RESULTS.BLOCKED:
       Alert.alert('Please Allow Access', getDescription(permission), [
         { text: 'Not Now', style: 'cancel' },
         { text: 'Settings', onPress: openSettings },
       ]);
-      return false;
+      return PermissionCheckResult.FAILED;
 
     case RESULTS.LIMITED:
-      //TODO new screen for photos picker
-      await openLimitedPhotoLibraryPicker();
-      return true;
+      return PermissionCheckResult.LIMITED;
+
     case RESULTS.GRANTED:
-      return true;
+      return PermissionCheckResult.FAILED;
 
     case RESULTS.DENIED:
       const requestResult = await request(permission);
 
       if (requestResult === RESULTS.GRANTED) {
-        return true;
+        return PermissionCheckResult.SUCCESS;
       }
 
-      return false;
+      return PermissionCheckResult.FAILED;
   }
 };

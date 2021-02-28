@@ -94,6 +94,7 @@ export const FolderCreate = observer(() => {
           clearButtonMode="always"
           placeholder="Folder name"
           onSubmitEditing={onSubmit}
+          placeholderTextColor="#cacaca"
           value={folderStore.newFolderName}
           onChangeText={folderStore.setNewFolderName}
           style={[styles.input, { width: inputWidth }]}

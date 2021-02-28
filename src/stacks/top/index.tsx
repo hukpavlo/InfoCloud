@@ -4,12 +4,20 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { FoldersList } from '@screens';
 import { ScreenName } from '@constants';
 
-export const TopStack: FC = () => {
-  const Tab = createMaterialTopTabNavigator();
+const { Navigator, Screen } = createMaterialTopTabNavigator();
 
+export const TopStack: FC = () => {
   return (
-    <Tab.Navigator tabBarOptions={{ scrollEnabled: true }}>
-      <Tab.Screen options={{ title: 'All' }} name={ScreenName.FOLDERS_LIST_ALL} component={FoldersList} />
-    </Tab.Navigator>
+    <Navigator
+      tabBarOptions={{
+        scrollEnabled: true,
+        labelStyle: { textTransform: 'none' },
+      }}>
+      <Screen
+        component={FoldersList}
+        options={{ title: 'All Folders' }}
+        name={ScreenName.FOLDERS_LIST_ALL}
+      />
+    </Navigator>
   );
 };

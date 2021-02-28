@@ -8,9 +8,10 @@ import { BottomStack } from './bottom';
 import { ScreenName } from '@constants';
 import { HeaderButton } from '@components';
 
+const { Navigator, Screen } = createStackNavigator();
+
 export const MainStack: FC = () => {
   const { width } = useWindowDimensions();
-  const { Navigator, Screen } = createStackNavigator();
 
   return (
     <Navigator initialRouteName={ScreenName.BOTTOM_STACK}>

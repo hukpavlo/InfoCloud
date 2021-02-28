@@ -4,6 +4,7 @@ import React from 'react';
 import Amplify from 'aws-amplify';
 import { StatusBar } from 'react-native';
 import { withAuthenticator } from 'aws-amplify-react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { RootStack } from '@stacks';
 import awsconfig from '../aws-exports';
@@ -18,10 +19,12 @@ Amplify.configure({
 
 export const App = withAuthenticator(
   () => (
-    <RootStoreContext.Provider value={rootStore}>
-      <StatusBar barStyle="dark-content" />
-      <RootStack />
-    </RootStoreContext.Provider>
+    <SafeAreaProvider>
+      <RootStoreContext.Provider value={rootStore}>
+        <StatusBar barStyle="dark-content" />
+        <RootStack />
+      </RootStoreContext.Provider>
+    </SafeAreaProvider>
   ),
   {
     usernameAttributes: 'email',
