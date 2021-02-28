@@ -1,7 +1,8 @@
+import { toJS } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import { RNCamera } from 'react-native-camera';
-import React, { useCallback, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import {
   View,
   Image,
@@ -14,12 +15,9 @@ import {
 
 import { useStores } from '@stores';
 import { PhotoFeedProps } from './photo-feed.props';
-import { toJS } from 'mobx';
 
 export const PhotoFeed = observer<PhotoFeedProps>(() => {
   const { photoStore, folderStore } = useStores();
-
-  useEffect(() => {}, [photoStore]);
 
   useEffect(() => {
     photoStore.reset();
@@ -30,11 +28,7 @@ export const PhotoFeed = observer<PhotoFeedProps>(() => {
 
   const renderItem = useCallback<ListRenderItem<string>>(
     ({ item }) => (
-      <TouchableWithoutFeedback
-        onPress={() => {
-          console.log('#####');
-          folderStore.getNewFolderThumb(item);
-        }}>
+      <TouchableWithoutFeedback onPress={() => folderStore.getNewFolderThumb(item)}>
         <Image style={styles.image} source={{ uri: item }} />
       </TouchableWithoutFeedback>
     ),
@@ -45,18 +39,21 @@ export const PhotoFeed = observer<PhotoFeedProps>(() => {
     photoStore.getPhotos();
   }, [photoStore]);
 
-  const ListHeaderComponent = (
-    <Pressable style={styles.cameraContainer} onPress={folderStore.getNewFolderThumbFromCamera}>
-      <RNCamera
-        captureAudio={false}
-        style={styles.camera}
-        type={RNCamera.Constants.Type.back}
-        flashMode={RNCamera.Constants.FlashMode.on}
-        notAuthorizedView={<View style={styles.camera} />}
-        pendingAuthorizationView={<View style={styles.camera} />}
-      />
-      <Icon name="camera" size={50} color="#fff" style={styles.icon} />
-    </Pressable>
+  const ListHeaderComponent = useMemo(
+    () => (
+      <Pressable style={styles.cameraContainer} onPress={folderStore.getNewFolderThumbFromCamera}>
+        <RNCamera
+          captureAudio={false}
+          style={styles.camera}
+          type={RNCamera.Constants.Type.back}
+          flashMode={RNCamera.Constants.FlashMode.on}
+          notAuthorizedView={<View style={styles.camera} />}
+          pendingAuthorizationView={<View style={styles.camera} />}
+        />
+        <Icon name="camera" size={50} color="#fff" style={styles.icon} />
+      </Pressable>
+    ),
+    [folderStore],
   );
 
   return (

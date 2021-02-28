@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import { RNCamera } from 'react-native-camera';
-import React, { useCallback, useEffect, useMemo } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { View, Image, FlatList, Pressable, StyleSheet, ListRenderItem } from 'react-native';
 
 import { useStores } from '@stores';
