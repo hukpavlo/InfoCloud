@@ -1,12 +1,11 @@
 import { observer } from 'mobx-react-lite';
 import { RNCamera } from 'react-native-camera';
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { FlatList, Image, ListRenderItem, StyleSheet, View } from 'react-native';
+import { View, Image, FlatList, Pressable, StyleSheet, ListRenderItem } from 'react-native';
 
 import { useStores } from '@stores';
 import { PhotoFeedProps } from './photo-feed.props';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export const PhotoFeed = observer<PhotoFeedProps>(() => {
   const { photoStore, folderStore } = useStores();
@@ -19,27 +18,34 @@ export const PhotoFeed = observer<PhotoFeedProps>(() => {
   const keyExtractor = useCallback((_, index: number) => index.toString(), []);
 
   const renderItem = useCallback<ListRenderItem<string>>(
-    ({ item, index }) => {
-      return index ? (
-        <TouchableWithoutFeedback onPress={() => folderStore.getNewFolderThumb(item)}>
-          <Image style={styles.image} source={{ uri: item }} />
-        </TouchableWithoutFeedback>
-      ) : (
-        <TouchableWithoutFeedback onPress={() => folderStore.getNewFolderThumbFromCamera()}>
-          <View style={styles.cameraContainer}>
-            <RNCamera
-              captureAudio={false}
-              style={styles.camera}
-              type={RNCamera.Constants.Type.back}
-              flashMode={RNCamera.Constants.FlashMode.on}
-              notAuthorizedView={<View style={styles.camera} />}
-              pendingAuthorizationView={<View style={styles.camera} />}
-            />
-            <Icon name="camera" size={50} color="#fff" style={styles.icon} />
-          </View>
-        </TouchableWithoutFeedback>
-      );
-    },
+    ({ item }) => (
+      <Pressable onPress={() => folderStore.getNewFolderThumb(item)}>
+        <Image style={styles.image} source={{ uri: item }} />
+      </Pressable>
+    ),
+    [folderStore],
+  );
+
+  const onEndReached = useCallback(() => {
+    photoStore.getPhotos();
+  }, [photoStore]);
+
+  const ListHeaderComponent = useMemo(
+    () => (
+      <Pressable
+        style={styles.cameraContainer}
+        onPress={() => folderStore.getNewFolderThumbFromCamera()}>
+        <RNCamera
+          captureAudio={false}
+          style={styles.camera}
+          type={RNCamera.Constants.Type.back}
+          flashMode={RNCamera.Constants.FlashMode.on}
+          notAuthorizedView={<View style={styles.camera} />}
+          pendingAuthorizationView={<View style={styles.camera} />}
+        />
+        <Icon name="camera" size={50} color="#fff" style={styles.icon} />
+      </Pressable>
+    ),
     [folderStore],
   );
 
@@ -47,11 +53,12 @@ export const PhotoFeed = observer<PhotoFeedProps>(() => {
     <FlatList
       horizontal={true}
       renderItem={renderItem}
+      data={photoStore.photos}
       keyExtractor={keyExtractor}
-      data={[null, ...photoStore.photos]}
-      onEndReached={photoStore.getPhotos}
+      onEndReached={onEndReached}
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.listContainer}
+      ListHeaderComponent={ListHeaderComponent}
     />
   );
 });
