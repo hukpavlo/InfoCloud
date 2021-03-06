@@ -1,19 +1,20 @@
 import Modal from 'react-native-modal';
+import React, { FC, useImperativeHandle, useState } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import React, { createRef, useImperativeHandle, useState } from 'react';
 import { Text, View, StyleSheet, TouchableHighlight } from 'react-native';
 
+import { useStores } from '@stores';
 import { PhotoFeed } from './components';
+import { actionSheetRef } from '@helpers';
+import { ActionSheetOptions } from '@models';
 import { ActionSheetProps } from './action-sheet.props';
-import { ActionSheetOptions, ActionSheetRef } from './models';
 
-const actionSheetRef = createRef<ActionSheetRef>();
-
-export const ActionSheet: ActionSheetProps = () => {
+export const ActionSheet: FC<ActionSheetProps> = () => {
+  const { photoStore } = useStores();
   const { bottom, left, right } = useSafeAreaInsets();
   const [options, setOptions] = useState<ActionSheetOptions>(null);
 
-  useImperativeHandle<ActionSheetRef, ActionSheetRef>(
+  useImperativeHandle(
     actionSheetRef,
     () => ({
       showWithOptions(opts) {
@@ -26,6 +27,12 @@ export const ActionSheet: ActionSheetProps = () => {
     [],
   );
 
+  const onModalShow = () => {
+    if (options?.isVisible && options?.hasPhotoFeed) {
+      photoStore.getPhotos(true);
+    }
+  };
+
   const hide = () => setOptions(null);
 
   return (
@@ -33,6 +40,7 @@ export const ActionSheet: ActionSheetProps = () => {
       backdropOpacity={0.3}
       useNativeDriver={true}
       onBackdropPress={hide}
+      onModalShow={onModalShow}
       isVisible={options?.isVisible}
       useNativeDriverForBackdrop={true}
       style={[
@@ -64,14 +72,6 @@ export const ActionSheet: ActionSheetProps = () => {
       </TouchableHighlight>
     </Modal>
   );
-};
-
-ActionSheet.showWithOptions = (options) => {
-  actionSheetRef.current?.showWithOptions(options);
-};
-
-ActionSheet.hide = () => {
-  actionSheetRef.current?.hide();
 };
 
 const styles = StyleSheet.create({

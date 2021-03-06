@@ -8,6 +8,7 @@ import {
   openSettings,
 } from 'react-native-permissions';
 
+import { logger } from './logger';
 import { PermissionCheckResult } from '@constants';
 
 const getDescription = (permission: Permission) => {
@@ -20,7 +21,11 @@ const getDescription = (permission: Permission) => {
 };
 
 export const checkPermission = async (permission: Permission): Promise<PermissionCheckResult> => {
+  logger.info(`Trying to check ${permission} permission`);
+
   const checkResult = await check(permission);
+
+  logger.info(`Result: ${checkResult}`);
 
   switch (checkResult) {
     case RESULTS.UNAVAILABLE:
@@ -41,7 +46,11 @@ export const checkPermission = async (permission: Permission): Promise<Permissio
       return PermissionCheckResult.SUCCESS;
 
     case RESULTS.DENIED:
+      logger.info('Trying to request permission');
+
       const requestResult = await request(permission);
+
+      logger.info(`Result: ${requestResult}`);
 
       if (requestResult === RESULTS.GRANTED) {
         return PermissionCheckResult.SUCCESS;

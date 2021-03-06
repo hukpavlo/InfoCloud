@@ -14,7 +14,6 @@ export const PhotoFeed = observer<PhotoFeedProps>(() => {
 
   useEffect(() => {
     photoStore.reset();
-    photoStore.getPhotos(true);
   }, [photoStore]);
 
   const keyExtractor = useCallback((_, index: number) => index.toString(), []);
@@ -32,11 +31,11 @@ export const PhotoFeed = observer<PhotoFeedProps>(() => {
     photoStore.getPhotos();
   }, [photoStore]);
 
+  const onCameraPress = useCallback(() => folderStore.getNewFolderThumbFromCamera(), [folderStore]);
+
   const ListHeaderComponent = useMemo(
     () => (
-      <TouchableWithoutFeedback
-        style={styles.cameraContainer}
-        onPress={folderStore.getNewFolderThumbFromCamera}>
+      <TouchableWithoutFeedback style={styles.cameraContainer} onPress={onCameraPress}>
         <RNCamera
           captureAudio={false}
           style={styles.camera}
@@ -48,7 +47,7 @@ export const PhotoFeed = observer<PhotoFeedProps>(() => {
         <Icon name="camera" size={50} color="#fff" style={styles.icon} />
       </TouchableWithoutFeedback>
     ),
-    [folderStore],
+    [onCameraPress],
   );
 
   return (

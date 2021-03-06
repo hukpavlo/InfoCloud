@@ -5,9 +5,8 @@ import { flow, Instance, types } from 'mobx-state-tree';
 import ImagePicker, { Image, PickerErrorCode } from 'react-native-image-crop-picker';
 
 import { Folder } from '@datastore';
-import { ActionSheet } from '@components';
-import { checkPermission } from '@helpers';
 import { PermissionCheckResult } from '@constants';
+import { ActionSheetHelper, checkPermission } from '@helpers';
 
 const FolderModel = types.model({
   name: types.string,
@@ -23,6 +22,8 @@ export const FolderStore = types
     newFolderThumbPath: types.maybeNull(types.string),
   })
   .actions((self) => {
+    const THUMBNAIL_SIZE = 50;
+
     const parseFolder = ({ id, name, thumb }: Folder): Instance<typeof FolderModel> => ({
       id,
       name,
@@ -54,24 +55,26 @@ export const FolderStore = types
         self.folders.push(parseFolder(newFolder));
       }),
       removeNewFolderThumb: () => {
-        ActionSheet.hide();
+        ActionSheetHelper.hide();
         self.newFolderThumbPath = null;
       },
       getNewFolderThumb: flow<void, [string]>(function* (path) {
         try {
           const image: Image = yield ImagePicker.openCropper({
             path,
-            width: 50,
-            height: 50,
             cropping: true,
             mediaType: 'photo',
+            width: THUMBNAIL_SIZE,
+            height: THUMBNAIL_SIZE,
             cropperCircleOverlay: true,
           });
 
-          ActionSheet.hide();
+          ActionSheetHelper.hide();
           self.newFolderThumbPath = image.path;
         } catch (err) {
-          if ((err.code as PickerErrorCode) === 'E_PICKER_CANCELLED') {
+          const errCode: PickerErrorCode = err.code;
+
+          if (errCode === 'E_PICKER_CANCELLED') {
             return;
           }
 
@@ -80,21 +83,23 @@ export const FolderStore = types
       }),
       getNewFolderThumbFromCamera: flow(function* () {
         try {
-          const isPermissionAvailable: boolean = yield checkPermission(PERMISSIONS.IOS.CAMERA);
+          const permissionCheckResult: PermissionCheckResult = yield checkPermission(
+            PERMISSIONS.IOS.CAMERA,
+          );
 
-          if (!isPermissionAvailable) {
+          if (permissionCheckResult === PermissionCheckResult.FAILED) {
             return;
           }
 
           const { path }: Image = yield ImagePicker.openCamera({
-            width: 50,
-            height: 50,
             cropping: true,
             mediaType: 'photo',
+            width: THUMBNAIL_SIZE,
+            height: THUMBNAIL_SIZE,
             cropperCircleOverlay: true,
           });
 
-          ActionSheet.hide();
+          ActionSheetHelper.hide();
           self.newFolderThumbPath = path;
         } catch (err) {
           const errCode: PickerErrorCode = err.code;
@@ -119,14 +124,14 @@ export const FolderStore = types
           }
 
           const { path }: Image = yield ImagePicker.openPicker({
-            width: 50,
-            height: 50,
             cropping: true,
             mediaType: 'photo',
+            width: THUMBNAIL_SIZE,
+            height: THUMBNAIL_SIZE,
             cropperCircleOverlay: true,
           });
 
-          ActionSheet.hide();
+          ActionSheetHelper.hide();
           self.newFolderThumbPath = path;
         } catch (err) {
           const errCode: PickerErrorCode = err.code;

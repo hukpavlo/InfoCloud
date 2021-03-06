@@ -1,22 +1,16 @@
 import { observer } from 'mobx-react-lite';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import React, { Fragment, useCallback, useLayoutEffect, useRef } from 'react';
-import {
-  View,
-  Alert,
-  Image,
-  Pressable,
-  StatusBar,
-  TextInput,
-  StyleSheet,
-  SafeAreaView,
-} from 'react-native';
+import { View, Alert, Image, StatusBar, TextInput, StyleSheet, SafeAreaView } from 'react-native';
 
 import { useStores } from '@stores';
 import { useInputWidth } from '@hooks';
 import { ScreenName } from '@constants';
-import { ActionSheet, HeaderButton } from '@components';
+import { HeaderButton } from '@components';
+import { ActionSheetButton } from '@models';
+import { ActionSheetHelper } from '@helpers';
 import {
   PHOTO_PADDING,
   CAMERA_ICON_SIZE,
@@ -26,9 +20,9 @@ import {
 } from './constants';
 
 export const FolderCreate = observer(() => {
-  const navigation = useNavigation();
   const { folderStore } = useStores();
   const inputRef = useRef<TextInput>(null);
+  const { setOptions, navigate } = useNavigation();
   const inputWidth = useInputWidth(INPUT_LEFT_COMPONENT_WIDTH);
 
   const onSubmit = useCallback(() => {
@@ -48,11 +42,11 @@ export const FolderCreate = observer(() => {
 
     folderStore.createFolder();
 
-    navigation.navigate(ScreenName.FOLDERS_LIST_ALL);
-  }, [navigation, folderStore]);
+    navigate(ScreenName.FOLDERS_LIST_ALL);
+  }, [navigate, folderStore]);
 
   useLayoutEffect(() => {
-    navigation.setOptions({
+    setOptions({
       headerRight: () => (
         <HeaderButton
           title="Save"
@@ -61,15 +55,26 @@ export const FolderCreate = observer(() => {
         />
       ),
     });
-  }, [navigation, onSubmit, folderStore.newFolderName]);
+  }, [setOptions, onSubmit, folderStore.newFolderName]);
 
   const openPhotoActionSheet = () => {
-    ActionSheet.showWithOptions({
+    const buttons: ActionSheetButton[] = [
+      {
+        title: 'Open Gallery',
+        onPress: folderStore.getNewFolderThumbFromGallery,
+      },
+    ];
+
+    if (folderStore.newFolderThumbPath) {
+      buttons.push({
+        title: 'Remove Photo',
+        onPress: folderStore.removeNewFolderThumb,
+      });
+    }
+
+    ActionSheetHelper.showWithOptions({
+      buttons,
       hasPhotoFeed: true,
-      buttons: [
-        { title: 'Open Gallery', onPress: folderStore.getNewFolderThumbFromGallery },
-        { title: 'Remove Photo', onPress: folderStore.removeNewFolderThumb },
-      ],
     });
   };
 
@@ -77,7 +82,7 @@ export const FolderCreate = observer(() => {
     <Fragment>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.container}>
-        <Pressable style={styles.photoContainer} onPress={openPhotoActionSheet}>
+        <TouchableWithoutFeedback style={styles.photoContainer} onPress={openPhotoActionSheet}>
           {folderStore.newFolderThumbPath ? (
             <View style={styles.thumbContainer}>
               <Image source={{ uri: folderStore.newFolderThumbPath }} style={styles.thumb} />
@@ -87,7 +92,7 @@ export const FolderCreate = observer(() => {
               <Icon name="camera" size={CAMERA_ICON_SIZE} color="rgb(0, 122, 255)" />
             </View>
           )}
-        </Pressable>
+        </TouchableWithoutFeedback>
 
         <TextInput
           ref={inputRef}

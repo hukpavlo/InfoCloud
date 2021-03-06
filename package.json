@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios --scheme \"InfoCloudDevelopment\"",
+    "ios": "react-native run-ios --scheme \"InfoCloudDevelopment\" --simulator=\"iPhone 12 Pro Max\"",
     "start": "react-native start --reset-cache",
     "test": "jest --coverage",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
