@@ -7,9 +7,12 @@
     "ios": "react-native run-ios --scheme \"InfoCloudDevelopment\" --simulator=\"iPhone 12 Pro Max\"",
     "start": "react-native start --reset-cache",
     "test": "jest --coverage",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "amplify-modelgen": "node amplify/scripts/amplify-modelgen.js",
+    "amplify-push": "node amplify/scripts/amplify-push.js"
   },
   "dependencies": {
+    "@aws-amplify/cli": "4.45.0",
     "@react-native-community/cameraroll": "4.0.2",
     "@react-native-community/masked-view": "0.1.10",
     "@react-native-community/netinfo": "5.9.10",
@@ -55,7 +58,9 @@
     "jest": "25.1.0",
     "metro-react-native-babel-preset": "0.59.0",
     "react-test-renderer": "16.13.1",
-    "typescript": "3.8.3"
+    "typescript": "3.8.3",
+    "ini": "^1.3.5",
+    "inquirer": "^6.5.1"
   },
   "jest": {
     "preset": "react-native",

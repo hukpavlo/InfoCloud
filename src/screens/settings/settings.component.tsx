@@ -1,5 +1,5 @@
-import { Auth } from 'aws-amplify';
 import React, { FC } from 'react';
+import { Auth } from 'aws-amplify';
 import { SafeAreaView, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
