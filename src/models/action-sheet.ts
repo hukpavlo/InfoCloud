@@ -12,4 +12,5 @@ export interface ActionSheetRef {
 export type ActionSheetButton = {
   title: string;
   onPress: () => void;
+  isDestructive?: boolean;
 };

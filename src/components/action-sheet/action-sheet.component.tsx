@@ -53,13 +53,15 @@ export const ActionSheet: FC<ActionSheetProps> = () => {
       ]}>
       <View style={styles.mainContainer}>
         {options?.hasPhotoFeed && <PhotoFeed />}
-        {options?.buttons.map(({ title, onPress }, index) => (
+        {options?.buttons.map(({ title, onPress, isDestructive }, index) => (
           <TouchableHighlight
             key={index}
             onPress={onPress}
-            style={styles.button}
+            style={[styles.button, styles.regularButton, !index && styles.firstRegularButton]}
             underlayColor="#e5e5e5">
-            <Text style={styles.buttonText}>{title}</Text>
+            <Text style={[styles.buttonText, isDestructive && styles.destructiveButtonText]}>
+              {title}
+            </Text>
           </TouchableHighlight>
         ))}
       </View>
@@ -99,6 +101,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     justifyContent: 'center',
+  },
+  regularButton: {
+    borderTopWidth: 0.5,
+    borderTopColor: '#cacaca',
+  },
+  firstRegularButton: {
+    borderTopWidth: 0,
+  },
+  destructiveButtonText: {
+    color: 'red',
   },
   buttonText: {
     fontSize: 18,

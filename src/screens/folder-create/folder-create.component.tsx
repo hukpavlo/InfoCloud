@@ -67,6 +67,7 @@ export const FolderCreate = observer(() => {
 
     if (folderStore.newFolderThumbPath) {
       buttons.push({
+        isDestructive: true,
         title: 'Remove Photo',
         onPress: folderStore.removeNewFolderThumb,
       });
