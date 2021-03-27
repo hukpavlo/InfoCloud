@@ -21,11 +21,12 @@
       "@models": ["src/models"],
       "@screens": ["src/screens"],
       "@helpers": ["src/helpers"],
+      "@services": ["src/services"],
       "@datastore": ["src/datastore"],
       "@constants": ["src/constants"],
       "@components": ["src/components"]
     }
   },
-  "include": ["src", "@types", "aws-exports.js"],
+  "include": ["src", "@types"],
   "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }

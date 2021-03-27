@@ -7,7 +7,7 @@ import { withAuthenticator } from 'aws-amplify-react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { RootStack } from '@stacks';
-import awsconfig from '../aws-exports';
+import awsconfig from './aws-exports';
 import { ActionSheet } from '@components';
 import { RootStoreContext, rootStore } from '@stores';
 

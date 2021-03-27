@@ -6,7 +6,7 @@ import ImagePicker, { Image, PickerErrorCode } from 'react-native-image-crop-pic
 
 import { Folder } from '@datastore';
 import { PermissionCheckResult } from '@constants';
-import { ActionSheetHelper, checkPermission } from '@helpers';
+import { ActionSheetHelper, checkPermission, logger } from '@helpers';
 
 const FolderModel = types.model({
   name: types.string,
@@ -33,7 +33,6 @@ export const FolderStore = types
     return {
       afterCreate: flow(function* () {
         const folders: Folder[] = yield DataStore.query(Folder);
-
         self.folders.replace(folders.map(parseFolder));
       }),
       setNewFolderName: (newFolderName: string) => {
@@ -62,7 +61,7 @@ export const FolderStore = types
         try {
           const image: Image = yield ImagePicker.openCropper({
             path,
-            cropping: true,
+            cropping: false,
             mediaType: 'photo',
             width: THUMBNAIL_SIZE,
             height: THUMBNAIL_SIZE,
@@ -78,6 +77,8 @@ export const FolderStore = types
             return;
           }
 
+          logger.error(err);
+
           Alert.alert('Something went wrong');
         }
       }),
@@ -92,7 +93,7 @@ export const FolderStore = types
           }
 
           const { path }: Image = yield ImagePicker.openCamera({
-            cropping: true,
+            cropping: false,
             mediaType: 'photo',
             width: THUMBNAIL_SIZE,
             height: THUMBNAIL_SIZE,
@@ -124,7 +125,7 @@ export const FolderStore = types
           }
 
           const { path }: Image = yield ImagePicker.openPicker({
-            cropping: true,
+            cropping: false,
             mediaType: 'photo',
             width: THUMBNAIL_SIZE,
             height: THUMBNAIL_SIZE,
