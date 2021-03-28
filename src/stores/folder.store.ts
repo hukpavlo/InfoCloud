@@ -5,7 +5,6 @@ import { PERMISSIONS } from 'react-native-permissions';
 import ImagePicker, { Image, PickerErrorCode } from 'react-native-image-crop-picker';
 
 import { Folder } from '@datastore';
-import { RootStore } from '@stores';
 import { PermissionCheckResult } from '@constants';
 import { ActionSheetHelper, checkPermission, logger } from '@helpers';
 
@@ -17,7 +16,7 @@ export class FolderStore {
 
   private readonly _THUMBNAIL_SIZE = 50;
 
-  constructor(private rootStore: RootStore) {
+  constructor() {
     makeAutoObservable(this);
   }
 

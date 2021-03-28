@@ -1,4 +1,4 @@
-import { flow } from 'mobx';
+import { flow, makeAutoObservable } from 'mobx';
 import CameraRoll from '@react-native-community/cameraroll';
 import { openLimitedPhotoLibraryPicker, PERMISSIONS } from 'react-native-permissions';
 
@@ -6,11 +6,15 @@ import { PermissionCheckResult } from '@constants';
 import { checkPermission, logger } from '@helpers';
 
 export class PhotoStore {
-  public hasNextPage = true;
   public photos: string[] = [];
-  public endCursor: string | undefined;
 
+  private hasNextPage = true;
+  private endCursor: string | undefined;
   private readonly _PHOTOS_BATCH_SIZE = 25;
+
+  constructor() {
+    makeAutoObservable(this);
+  }
 
   getPhotos = flow(function* (this: PhotoStore, shouldCheckPermission?: boolean) {
     logger.info('Trying to get photos');

@@ -9,7 +9,7 @@ export class RootStore {
 }
 
 export const rootStore = new RootStore();
-export const RootStoreContext = createContext<RootStore>(null);
+export const RootStoreContext = createContext<RootStore>(rootStore);
 
 export const useStores = () => {
   const store = useContext(RootStoreContext);
