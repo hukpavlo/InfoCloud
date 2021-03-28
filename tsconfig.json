@@ -2,7 +2,7 @@
   "compilerOptions": {
     "lib": ["es6"],
     "noEmit": true,
-    "strict": false,
+    "strict": true,
     "allowJs": true,
     "baseUrl": "./",
     "target": "esnext",
