@@ -21,7 +21,7 @@ export const schema = {
           name: 'thumb',
           isArray: false,
           type: 'String',
-          isRequired: true,
+          isRequired: false,
           attributes: [],
         },
       },
@@ -55,5 +55,5 @@ export const schema = {
   },
   enums: {},
   nonModels: {},
-  version: '32d3702d8a70ecce1eed5871351b4a4d',
+  version: 'ffb399f56d51b58ec385c4193066d2be',
 };

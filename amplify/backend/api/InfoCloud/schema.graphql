@@ -1,5 +1,5 @@
 type Folder @model @auth(rules: [{ allow: owner }, { allow: public }]) {
   id: ID!
   name: String!
-  thumb: String!
+  thumb: String
 }

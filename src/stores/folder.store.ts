@@ -10,8 +10,8 @@ import { ActionSheetHelper, checkPermission, logger } from '@helpers';
 
 const FolderModel = types.model({
   name: types.string,
-  thumb: types.string,
   id: types.identifier,
+  thumb: types.maybeNull(types.string),
 });
 
 export const FolderStore = types
@@ -45,7 +45,6 @@ export const FolderStore = types
         const newFolder: Folder = yield DataStore.save(
           new Folder({
             name: self.newFolderName,
-            thumb: self.newFolderThumbPath,
           }),
         );
 
